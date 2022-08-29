@@ -13,11 +13,11 @@ class SplashScreen extends StatelessWidget {
     SizeUtils().init(context);
 
     return Scaffold(
-      extendBodyBehindAppBar: true,
-      appBar: const CustomAppBar(
-        background: Colors.transparent,
-        elevation: 0,
-      ),
+      // extendBodyBehindAppBar: true,
+      // appBar: const CustomAppBar(
+      //   background: Colors.transparent,
+      //   elevation: 0,
+      // ),
       body: Container(
         color: brand,
         child: const Center(child: LogoWithTitle()),

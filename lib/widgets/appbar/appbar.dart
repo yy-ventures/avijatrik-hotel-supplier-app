@@ -9,11 +9,13 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.title = '',
     this.background = primaryWhite,
     this.elevation = 10,
+    this.statusbarTransparent = false,
   }) : super(key: key);
 
   final String title;
   final Color background;
   final double elevation;
+  final bool statusbarTransparent;
 
   @override
   Size get preferredSize => const Size.fromHeight(appBarHeight);
@@ -23,11 +25,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     // SizeUtils().init(context);
 
     return AppBar(
-      systemOverlayStyle: const SystemUiOverlayStyle(
-          statusBarColor: primaryWhite,
+      systemOverlayStyle: SystemUiOverlayStyle(
+          statusBarColor:
+              statusbarTransparent ? Colors.transparent : primaryWhite,
           statusBarBrightness: Brightness.dark,
           statusBarIconBrightness: Brightness.dark,
-          systemStatusBarContrastEnforced: true),
+          systemStatusBarContrastEnforced: !statusbarTransparent),
       elevation: elevation,
       backgroundColor: background,
       automaticallyImplyLeading: false,

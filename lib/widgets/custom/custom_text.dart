@@ -21,9 +21,10 @@ class CustomText extends StatelessWidget {
       title,
       textAlign: TextAlign.center,
       style: TextStyle(
-          color: textColor,
-          fontWeight: fontWeight,
-          fontSize: fontSize), // color_utils
+        color: textColor,
+        fontWeight: fontWeight,
+        fontSize: fontSize,
+      ),
     );
   }
 }
