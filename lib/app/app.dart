@@ -15,7 +15,7 @@ class App extends StatelessWidget {
       theme: ThemeData(fontFamily: AppConstants.fontFamily),
       debugShowCheckedModeBanner: false,
       onGenerateRoute: AppRoute.onGenerateRoute,
-      initialRoute: '/on-board',
+      initialRoute: '/sign-in',
     );
   }
 }

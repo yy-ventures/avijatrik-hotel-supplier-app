@@ -1,6 +1,7 @@
 import 'package:avijatrik_hotel_supplier_app/utils/index.dart';
 import 'package:avijatrik_hotel_supplier_app/widgets/appbar/appbar.dart';
 import 'package:avijatrik_hotel_supplier_app/widgets/custom/logo_with_title.dart';
+import 'package:avijatrik_hotel_supplier_app/widgets/image_with_shader/image_with_shader.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -9,43 +10,29 @@ class OnboardScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
+    // Setting System UI Styles
+    SystemChrome.setSystemUIOverlayStyle(transparentNavigation());
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge,
         overlays: [SystemUiOverlay.top]);
+
+    // Initializing the SizeUtils Custom Class
     SizeUtils().init(context);
 
+    // UI
     return Scaffold(
       extendBodyBehindAppBar: true,
       backgroundColor: brand,
       appBar: const CustomAppBar(
-        elevation: 0,
-        title: '',
-        background: Colors.transparent,
         statusbarTransparent: true,
+        elevation: 0,
       ),
       body: Column(
         children: [
           ClipPath(
             clipper: CustomClipPath(),
-            child: ShaderMask(
-              shaderCallback: (bounds) {
-                return LinearGradient(
-                  begin: FractionalOffset.topCenter,
-                  end: const Alignment(0, 1),
-                  colors: [
-                    primaryWhite,
-                    Colors.white.withOpacity(0.6),
-                    Colors.transparent,
-                    Colors.transparent,
-                    Colors.transparent,
-                  ],
-                ).createShader(bounds);
-              },
-              blendMode: BlendMode.srcATop,
-              child: Image(
-                image: const AssetImage('assets/images/bg-img.png'),
-                fit: BoxFit.cover,
-                height: SizeUtils.screenHeight * 0.65,
-              ),
+            child: const ImageWithShader(
+              imagePath: 'assets/images/bg-img.png',
+              heightInPercentage: 65,
             ),
           ),
           const SizedBox(height: 15),

@@ -32,7 +32,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           statusBarIconBrightness: Brightness.dark,
           systemStatusBarContrastEnforced: !statusbarTransparent),
       elevation: elevation,
-      backgroundColor: background,
+      backgroundColor: statusbarTransparent ? Colors.transparent : background,
       automaticallyImplyLeading: false,
       centerTitle: true,
       title: CustomText(
