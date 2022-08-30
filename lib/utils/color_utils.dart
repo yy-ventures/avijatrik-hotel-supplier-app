@@ -1,3 +1,4 @@
+import 'package:avijatrik_hotel_supplier_app/utils/index.dart';
 import 'package:flutter/material.dart';
 
 //Green
@@ -10,8 +11,9 @@ const Color greenOverlay = Color(0xFFDDF2EC);
 const Color greenOpacity = Color(0xFFE4F4EF);
 
 //Black
-const Color primaryBlack = Color(0xFF111212);
+const Color primaryBlack = Color(0xFF2E2E2E);
 const Color black80 = Color(0xFF414141);
+const Color black70 = Color(0xFF707070);
 const Color black60 = Color(0xFF707171);
 const Color black40 = Color(0xFFA0A0A0);
 const Color black20 = Color(0xFFCFD0D0);
@@ -68,18 +70,25 @@ const Color disableTextColor = black40;
 const Color shadowHeavy = Color.fromRGBO(0, 0, 0, 0.14);
 const Color shadowLight = Color.fromRGBO(0, 0, 0, 0.05);
 
-// Gradient
-const shimmerGradient = LinearGradient(
+// Gradient from both top to bottom and bottom to top on background image for sign-in page and otp page
+const mirrorGradient = LinearGradient(
   colors: [
-    Color(0xFFF6F6F8),
-    Color(0xFFF6F6F8),
-    Color(0xFFF6F6F8),
+    primaryWhite,
+    Colors.transparent,
+    primaryWhite,
   ],
-  stops: [
-    0.1,
-    0.3,
-    0.4,
+  stops: [0, 0.5, 1],
+  begin: Alignment(0, -0.9),
+  end: Alignment(0, 0.9),
+);
+
+// Gradient from top to bottom of the status bar behind the background image
+const linearGradient = LinearGradient(
+  colors: [
+    primaryWhite,
+    Colors.transparent,
   ],
-  begin: Alignment(-1, -0.3),
-  end: Alignment(1, 0.3),
+  stops: [0, 0.5],
+  begin: Alignment(0, -0.9),
+  end: Alignment(0, 1),
 );
