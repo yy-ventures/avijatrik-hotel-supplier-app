@@ -12,7 +12,7 @@ class HomeScreen extends StatelessWidget {
 
     return const Scaffold(
       backgroundColor: Colors.white,
-      appBar: CustomAppBar(title: 'Bid Details'),
+      appBar: CustomAppBar(title: 'Hotel The Cox Today'),
     );
   }
 }

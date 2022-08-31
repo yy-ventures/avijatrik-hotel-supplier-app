@@ -47,7 +47,7 @@ class App extends StatelessWidget {
                 fontFamily: AppConstants.fontFamily,
               ),
               onGenerateRoute: AppRoute.onGenerateRoute,
-              initialRoute: '/sign-in',
+              initialRoute: '/home',
             );
           },
         ),

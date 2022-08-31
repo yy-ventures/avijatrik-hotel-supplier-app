@@ -69,6 +69,7 @@ const Color disableTextColor = black40;
 //Shadow
 const Color shadowHeavy = Color.fromRGBO(0, 0, 0, 0.14);
 const Color shadowLight = Color.fromRGBO(0, 0, 0, 0.05);
+const Color shadowAppBar = Color.fromRGBO(0, 0, 0, 0.35);
 
 // Gradient from both top to bottom and bottom to top on background image for sign-in page and otp page
 const mirrorGradient = LinearGradient(

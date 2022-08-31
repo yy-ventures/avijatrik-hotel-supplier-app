@@ -26,18 +26,22 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
     return AppBar(
       systemOverlayStyle: SystemUiOverlayStyle(
-          statusBarColor:
-              statusbarTransparent ? Colors.transparent : primaryWhite,
-          statusBarBrightness: Brightness.dark,
-          statusBarIconBrightness: Brightness.dark,
-          systemStatusBarContrastEnforced: !statusbarTransparent),
+        statusBarColor:
+            statusbarTransparent ? Colors.transparent : primaryWhite,
+        statusBarBrightness: Brightness.dark,
+        statusBarIconBrightness: Brightness.dark,
+        systemStatusBarContrastEnforced: !statusbarTransparent,
+      ),
       elevation: elevation,
+      shadowColor: shadowAppBar,
       backgroundColor: statusbarTransparent ? Colors.transparent : background,
       automaticallyImplyLeading: false,
       centerTitle: true,
       title: CustomText(
         title: title,
         textColor: brand,
+        fontSize: 24,
+        fontWeight: FontWeight.bold,
       ),
     );
   }
