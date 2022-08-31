@@ -41,37 +41,28 @@ class CustomTextField extends StatelessWidget {
         fontFamily: AppConstants.fontFamily,
       ),
       decoration: InputDecoration(
-        focusedBorder: const OutlineInputBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(inputBorderRadius),
-          ),
+        focusedBorder: const UnderlineInputBorder(
           borderSide: BorderSide(
             color: brand,
             width: inputBorderWidth,
           ),
         ),
-        disabledBorder: const OutlineInputBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(inputBorderRadius),
-          ),
+        disabledBorder: const UnderlineInputBorder(
           borderSide: BorderSide(
-            color: black20,
+            color: black70,
             width: inputBorderWidth,
           ),
         ),
-        enabledBorder: const OutlineInputBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(inputBorderRadius),
-          ),
+        enabledBorder: const UnderlineInputBorder(
           borderSide: BorderSide(
-            color: black20,
+            color: black70,
             width: inputBorderWidth,
           ),
         ),
         label: LabelText(
           isRequired: isRequired,
           text: labelText,
-          color: black60,
+          color: black70,
         ),
       ),
       inputFormatters: inputFormatters,

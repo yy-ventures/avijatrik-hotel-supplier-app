@@ -1,6 +1,6 @@
 import 'package:avijatrik_hotel_supplier_app/shared/helpers/converters.dart';
-import 'package:avijatrik_hotel_supplier_app/shared/helpers/index.dart';
 import 'package:avijatrik_hotel_supplier_app/widgets/custom/custom_text.dart';
+import 'package:avijatrik_hotel_supplier_app/utils/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_countdown_timer/index.dart';
 
@@ -27,6 +27,8 @@ class OtpTimer extends StatelessWidget {
                       '${Converters.getNumericValue('en', time.sec ?? 0)}' : '${Converters.getNumericValue('en', time.sec ?? 00)}' : '${Converters.getNumericValue('en', 00)}'}'
               : '${Converters.getNumericValue('en', 00)}:${Converters.getNumericValue('en', 00)}',
           fontSize: 14,
+          textColor: brand,
+          fontWeight: FontWeight.w500,
         );
       },
     );

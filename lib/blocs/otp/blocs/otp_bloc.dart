@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:avijatrik_hotel_supplier_app/shared/otp/index.dart';
+import 'package:avijatrik_hotel_supplier_app/blocs/otp/index.dart';
 import 'package:avijatrik_hotel_supplier_app/shared/constants/index.dart';
 import 'package:avijatrik_hotel_supplier_app/shared/db/index.dart';
 import 'package:avijatrik_hotel_supplier_app/shared/models/index.dart';
@@ -50,10 +50,7 @@ class OtpBloc extends Bloc<OtpEvent, OtpState> {
       saveTokenInfo(token);
 
       emit(
-        OtpVerificationSuccess(
-          isNewUser: payload['ShowUserProfileUpdatePopup'],
-          hasPreferences: user.preferences.isNotEmpty,
-        ),
+        OtpVerificationSuccess(success: true),
       );
     } else {
       if (response.error?.statusCode == 500) {

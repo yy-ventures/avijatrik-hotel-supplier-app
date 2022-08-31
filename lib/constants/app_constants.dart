@@ -6,5 +6,5 @@ class AppConstants {
   static const int responseTimeOut = 10000; //10s
   static const String languageCode = 'en';
   static const String helpContactNumber = '+88 01785999000';
-  static const int userType = 1; //Customer
+  static const int userType = 2; //Customer
 }

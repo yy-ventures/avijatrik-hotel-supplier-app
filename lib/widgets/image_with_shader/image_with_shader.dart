@@ -7,20 +7,18 @@ class ImageWithShader extends StatelessWidget {
       {Key? key,
       required this.imagePath,
       required this.heightInPercentage,
-      this.symmetricShader = false})
+      required this.gradient})
       : super(key: key);
 
   final String imagePath;
   final double heightInPercentage;
-  final bool symmetricShader;
+  final LinearGradient gradient;
 
   @override
   Widget build(BuildContext context) {
     return ShaderMask(
       shaderCallback: (bounds) {
-        return symmetricShader
-            ? mirrorGradient.createShader(bounds)
-            : linearGradient.createShader(bounds);
+        return gradient.createShader(bounds);
       },
       blendMode: BlendMode.screen,
       child: Image(

@@ -19,16 +19,15 @@ class OtpValid extends OtpState {
 }
 
 class OtpVerificationSuccess extends OtpState {
-  OtpVerificationSuccess({
-    required this.isNewUser,
-    required this.hasPreferences,
-  });
+  OtpVerificationSuccess({required this.success});
 
-  final bool isNewUser;
-  final bool hasPreferences;
+  final bool success;
+  // final bool isNewUser;
+  // final bool hasPreferences;
 
   @override
-  List<Object?> get props => [isNewUser, hasPreferences];
+  // List<Object?> get props => [isNewUser, hasPreferences];
+  List<Object?> get props => [success];
 }
 
 class OtpVerificationFailed extends OtpState {

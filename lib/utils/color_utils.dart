@@ -81,6 +81,16 @@ const mirrorGradient = LinearGradient(
   begin: Alignment(0, -0.9),
   end: Alignment(0, 0.9),
 );
+const mirrorGradientOtpScreen = LinearGradient(
+  colors: [
+    primaryWhite,
+    Colors.transparent,
+    primaryWhite,
+  ],
+  stops: [0, 0.35, 0.85],
+  begin: Alignment(0, -0.9),
+  end: Alignment(0, 0.9),
+);
 
 // Gradient from top to bottom of the status bar behind the background image
 const linearGradient = LinearGradient(

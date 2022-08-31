@@ -29,41 +29,26 @@ class FooterButton extends StatelessWidget {
       color: color,
       disabledColor: disableColor,
       elevation: 0,
-      height: 56,
+      height: 52,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(50),
       ),
-      padding: const EdgeInsets.only(left: 24, right: 24),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          const SizedBox(),
-          if (isLoading)
-            const SizedBox(
-              height: 24,
-              width: 24,
+      padding: const EdgeInsets.only(left: 50, right: 50),
+      child: isLoading
+          ? const SizedBox(
+              height: 25,
+              width: 25,
               child: CircularProgressIndicator(
                 strokeWidth: 2,
                 valueColor: AlwaysStoppedAnimation<Color>(primaryWhite),
               ),
             )
-          else
-            CustomText(
+          : CustomText(
               title: text,
               textColor: onPressed == null ? disableTextColor : textColor,
               fontWeight: FontWeight.w700,
               fontSize: 18,
             ),
-          if (icon != '')
-            SizedBox()
-          // CustomSvg(
-          //   svg: icon ?? '',
-          //   color: onPressed == null ? disableTextColor : iconColor,
-          // )
-          else
-            const SizedBox(),
-        ],
-      ),
     );
   }
 }

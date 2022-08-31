@@ -33,6 +33,7 @@ class OnboardScreen extends StatelessWidget {
             child: const ImageWithShader(
               imagePath: 'assets/images/bg-img.png',
               heightInPercentage: 65,
+              gradient: linearGradient,
             ),
           ),
           const SizedBox(height: 15),

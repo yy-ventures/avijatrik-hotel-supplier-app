@@ -1,4 +1,4 @@
-import 'package:avijatrik_hotel_supplier_app/shared/otp/index.dart';
+import 'package:avijatrik_hotel_supplier_app/blocs/otp/index.dart';
 import 'package:bloc/bloc.dart';
 
 class TimerBloc extends Bloc<TimerEvent, TimerState> {

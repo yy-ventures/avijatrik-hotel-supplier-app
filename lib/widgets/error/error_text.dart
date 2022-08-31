@@ -1,6 +1,7 @@
 import 'package:avijatrik_hotel_supplier_app/utils/index.dart';
 import 'package:avijatrik_hotel_supplier_app/widgets/custom/custom_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class ErrorText extends StatelessWidget {
   const ErrorText({
@@ -24,18 +25,18 @@ class ErrorText extends StatelessWidget {
             child: Row(
               children: [
                 if (showErrorIcon)
-                  const Padding(
+                  Padding(
                     padding: EdgeInsets.only(right: 8),
-                    child: Icon(Icons.abc),
+                    child: SvgPicture.asset(
+                      'assets/icons/error_icon.svg',
+                    ),
                   )
                 else
                   const SizedBox(),
-                Expanded(
-                  child: CustomText(
-                    fontSize: 14,
-                    textColor: primaryDanger,
-                    title: !showAsterisk ? text : ('*') + text,
-                  ),
+                CustomText(
+                  fontSize: 14,
+                  textColor: primaryDanger,
+                  title: !showAsterisk ? text : ('*') + text,
                 ),
               ],
             ),

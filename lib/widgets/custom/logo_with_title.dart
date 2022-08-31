@@ -1,5 +1,6 @@
 import 'package:avijatrik_hotel_supplier_app/widgets/custom/custom_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class LogoWithTitle extends StatelessWidget {
   const LogoWithTitle({
@@ -11,8 +12,8 @@ class LogoWithTitle extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Image.asset(
-          'assets/images/logo.png',
+        SvgPicture.asset(
+          'assets/images/logo.svg',
         ),
         const SizedBox(height: 25),
         const CustomText(

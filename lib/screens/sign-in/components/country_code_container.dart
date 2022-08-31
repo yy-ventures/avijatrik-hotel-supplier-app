@@ -2,6 +2,7 @@ import 'package:avijatrik_hotel_supplier_app/utils/index.dart';
 import 'package:avijatrik_hotel_supplier_app/widgets/custom/custom_text.dart';
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class CountryCodeContainer extends StatelessWidget {
   const CountryCodeContainer({
@@ -28,32 +29,30 @@ class CountryCodeContainer extends StatelessWidget {
           showFlagDialog: true,
           builder: (c) {
             return Container(
+              alignment: Alignment.center,
               padding: const EdgeInsets.symmetric(
                 horizontal: 10,
               ),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(
-                  inputBorderRadius,
-                ),
-                border: Border.all(
-                  color: black20,
+              decoration: const BoxDecoration(
+                border: Border(
+                    bottom: BorderSide(
+                  color: black70,
                   width: inputBorderWidth,
-                ),
+                )),
               ),
               child: Row(
                 children: [
                   CustomText(
                     title: c!.dialCode!.toString(),
+                    textColor: black70,
                   ),
-                  const SizedBox(
-                    width: 4,
+                  const SizedBox(width: 8),
+                  SvgPicture.asset(
+                    'assets/icons/right_arrow_down.svg',
+                    width: 6,
+                    height: 6,
+                    color: black70,
                   ),
-                  // const CustomSvg(
-                  //   svg: 'icons/keyboard_arrow_down.svg',
-                  //   height: 10,
-                  //   width: 10,
-                  //   color: primaryBlack,
-                  // ),
                 ],
               ),
             );

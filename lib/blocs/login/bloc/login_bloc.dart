@@ -1,4 +1,4 @@
-import 'package:avijatrik_hotel_supplier_app/shared/login/index.dart';
+import 'package:avijatrik_hotel_supplier_app/blocs/login/index.dart';
 import 'package:avijatrik_hotel_supplier_app/shared/helpers/index.dart';
 import 'package:avijatrik_hotel_supplier_app/shared/services/index.dart';
 import 'package:bloc/bloc.dart';
