@@ -13,7 +13,7 @@ const double borderRadius = 3;
 const double rectangleBtnBorderRadius = 6;
 const double borderWidth = 1;
 
-const double appBarHeight = 64;
+const double appBarHeight = 100;
 const double iconSplashRadius = 30;
 
 const double headerTextFontSIze = 20;

@@ -11,13 +11,13 @@ class LanguageBloc extends Bloc<LanguageEvent, LanguageState> {
   LanguageBloc()
       : super(
           LanguageState(
+            toggle: false,
             locale: Locale(
               selectedLanguage(),
             ),
           ),
         ) {
     on<InitialLanguageEvent>(_initialEvent);
-    on<SelectLanguage>(_onSelectLanguage);
     on<ChangeLanguage>(_onChangeLanguage);
   }
 
@@ -25,32 +25,20 @@ class LanguageBloc extends Bloc<LanguageEvent, LanguageState> {
     InitialLanguageEvent event,
     Emitter<LanguageState> emit,
   ) async {
-    emit(LanguageState(locale: Locale(selectedLanguage())));
-  }
-
-  Future<void> _onSelectLanguage(
-    SelectLanguage event,
-    Emitter<LanguageState> emit,
-  ) async {
-    emit(
-      SelectedLanguage(
-        locale: Locale(selectedLanguage()),
-        languageCode: event.languageCode,
-      ),
-    );
+    emit(LanguageState(toggle: false, locale: Locale(selectedLanguage())));
   }
 
   Future<void> _onChangeLanguage(
     ChangeLanguage event,
     Emitter<LanguageState> emit,
   ) async {
-    emit(LanguageLoading(locale: Locale(event.languageCode)));
     DbHelper.saveData(
       Tables.appUtils,
       AppKeys.languageCode,
       event.languageCode,
     );
-    emit(LanguageState(locale: Locale(event.languageCode)));
+    emit(LanguageState(
+        toggle: event.toggle, locale: Locale(event.languageCode)));
   }
 
   static String selectedLanguage() {

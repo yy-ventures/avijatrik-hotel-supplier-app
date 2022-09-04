@@ -37,6 +37,8 @@ dependencies:
   pin_code_fields: ^7.3.0
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
   flutter_bloc: ^8.1.1
   flutter_dotenv: ^5.0.2
   flutter_svg: ^1.1.4
@@ -44,6 +46,7 @@ dependencies:
   hive_flutter: ^1.1.0
   page_transition: ^2.0.4
   sms_autofill: ^2.2.0
+  rolling_switch: ^0.0.2
 
 dev_dependencies:
   flutter_lints: ^2.0.0
@@ -54,6 +57,7 @@ dev_dependencies:
 # following page: https://dart.dev/tools/pub/pubspec
 # The following section is specific to Flutter packages.
 flutter:
+  generate: true
   uses-material-design: true
   assets:
     - assets/images/

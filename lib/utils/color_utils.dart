@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 //Green
 const Color brand = Color(0xFF1FA67D);
+const Color navigationLabelInactive = Color(0xFF5AF5C6);
 const Color green80 = Color(0xFF4CB897);
 const Color green60 = Color(0xFF79CAB1);
 const Color green40 = Color(0xFFA5DBCB);

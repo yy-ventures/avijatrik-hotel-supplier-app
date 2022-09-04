@@ -1,3 +1,4 @@
+import 'package:avijatrik_hotel_supplier_app/l10n/l10n.dart';
 import 'package:avijatrik_hotel_supplier_app/shared/blocs/index.dart';
 import 'package:avijatrik_hotel_supplier_app/shared/constants/index.dart';
 import 'package:avijatrik_hotel_supplier_app/cubits/index.dart';
@@ -6,6 +7,7 @@ import 'package:avijatrik_hotel_supplier_app/shared/services/index.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 class App extends StatelessWidget {
   const App({
@@ -46,6 +48,14 @@ class App extends StatelessWidget {
               theme: ThemeData(
                 fontFamily: AppConstants.fontFamily,
               ),
+              localizationsDelegates: const [
+                AppLocalizations.delegate,
+                // CustomAppLocalizations.delegate,
+                GlobalMaterialLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate,
+              ],
+              locale: state.locale,
+              supportedLocales: AppLocalizations.supportedLocales,
               onGenerateRoute: AppRoute.onGenerateRoute,
               initialRoute: '/home',
             );

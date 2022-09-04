@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-abstract class LanguageEvent extends Equatable{
+abstract class LanguageEvent extends Equatable {
   const LanguageEvent();
 }
 
@@ -12,15 +12,9 @@ class InitialLanguageEvent extends LanguageEvent {
 }
 
 class ChangeLanguage extends LanguageEvent {
-  const ChangeLanguage({required this.languageCode});
+  const ChangeLanguage({required this.toggle, required this.languageCode});
+  final bool toggle;
   final String languageCode;
   @override
-  List<Object?> get props => [languageCode];
-}
-
-class SelectLanguage extends LanguageEvent{
-  const SelectLanguage({required this.languageCode});
-  final String languageCode;
-  @override
-  List<Object?> get props => [languageCode];
+  List<Object?> get props => [toggle, languageCode];
 }

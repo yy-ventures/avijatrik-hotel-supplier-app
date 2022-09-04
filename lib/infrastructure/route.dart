@@ -1,4 +1,5 @@
 import 'package:avijatrik_hotel_supplier_app/screens/index.dart';
+import 'package:avijatrik_hotel_supplier_app/screens/layout/layout.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 
@@ -36,7 +37,7 @@ class AppRoute {
         );
       case '/home':
         return PageTransition<dynamic>(
-          child: const HomeScreen(),
+          child: const Layout(),
           type: PageTransitionType.rightToLeft,
           settings: settings,
         );
