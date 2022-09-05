@@ -36,7 +36,7 @@ class CountryCodeContainer extends StatelessWidget {
               decoration: const BoxDecoration(
                 border: Border(
                     bottom: BorderSide(
-                  color: black70,
+                  color: black50,
                   width: inputBorderWidth,
                 )),
               ),
@@ -44,14 +44,14 @@ class CountryCodeContainer extends StatelessWidget {
                 children: [
                   CustomText(
                     title: c!.dialCode!.toString(),
-                    textColor: black70,
+                    textColor: black50,
                   ),
                   const SizedBox(width: 8),
                   SvgPicture.asset(
                     'assets/icons/right_arrow_down.svg',
                     width: 6,
                     height: 6,
-                    color: black70,
+                    color: black50,
                   ),
                 ],
               ),

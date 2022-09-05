@@ -23,7 +23,7 @@ class ImageWithShader extends StatelessWidget {
       blendMode: BlendMode.screen,
       child: Image(
         image: AssetImage(imagePath),
-        fit: BoxFit.cover,
+        fit: BoxFit.fitHeight,
         width: SizeUtils.screenWidth,
         height: SizeUtils.screenHeight * (heightInPercentage / 100),
       ),

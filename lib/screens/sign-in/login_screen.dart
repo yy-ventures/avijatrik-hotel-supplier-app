@@ -101,14 +101,14 @@ class LoginForm extends StatelessWidget {
                         const SizedBox(height: 33),
                         const CustomText(
                           title: 'Enter your phone number',
-                          textColor: black70,
+                          textColor: black50,
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                         ),
                         const SizedBox(height: 4),
                         const CustomText(
                           title: 'We will send you a code on this number',
-                          textColor: black70,
+                          textColor: black50,
                           fontSize: 14,
                         ),
                         const SizedBox(height: 4),

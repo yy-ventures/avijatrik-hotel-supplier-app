@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 //Green
 const Color brand = Color(0xFF1FA67D);
-const Color navigationLabelInactive = Color(0xFF5AF5C6);
+const Color greenLight = Color(0xFF5AF5C6);
 const Color green80 = Color(0xFF4CB897);
 const Color green60 = Color(0xFF79CAB1);
 const Color green40 = Color(0xFFA5DBCB);
@@ -14,12 +14,14 @@ const Color greenOpacity = Color(0xFFE4F4EF);
 //Black
 const Color primaryBlack = Color(0xFF2E2E2E);
 const Color black80 = Color(0xFF414141);
-const Color black70 = Color(0xFF707070);
+const Color black50 = Color(0xFF707070);
 const Color black60 = Color(0xFF707171);
 const Color black40 = Color(0xFFA0A0A0);
 const Color black20 = Color(0xFFCFD0D0);
 const Color blackOverlay = Color(0xFFDBDBDB);
 const Color blackOpacity = Color(0xFFF2F2F2);
+
+const Color grey = Color(0xFFEBEBEB);
 
 //Blue
 const Color primaryBlue = Color(0xFF4082E4);
@@ -101,6 +103,16 @@ const linearGradient = LinearGradient(
     Colors.transparent,
   ],
   stops: [0, 0.5],
+  begin: Alignment(0, -0.9),
+  end: Alignment(0, 1),
+);
+// Gradient from top to bottom of the status bar behind the background image
+const helpScreenGradient = LinearGradient(
+  colors: [
+    primaryWhite,
+    Colors.transparent,
+  ],
+  stops: [0.2, 1],
   begin: Alignment(0, -0.9),
   end: Alignment(0, 1),
 );

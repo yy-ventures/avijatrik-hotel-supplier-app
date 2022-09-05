@@ -49,20 +49,20 @@ class CustomTextField extends StatelessWidget {
         ),
         disabledBorder: const UnderlineInputBorder(
           borderSide: BorderSide(
-            color: black70,
+            color: black50,
             width: inputBorderWidth,
           ),
         ),
         enabledBorder: const UnderlineInputBorder(
           borderSide: BorderSide(
-            color: black70,
+            color: black50,
             width: inputBorderWidth,
           ),
         ),
         label: LabelText(
           isRequired: isRequired,
           text: labelText,
-          color: black70,
+          color: black50,
         ),
       ),
       inputFormatters: inputFormatters,

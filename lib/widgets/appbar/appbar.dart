@@ -53,26 +53,30 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               // crossAxisAlignment: CrossAxisAlignment.center,
               alignment: Alignment.center,
               children: <Widget>[
-                CustomText(
-                  title: title,
-                  textColor: brand,
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
+                Positioned(
+                  bottom: 25,
+                  child: CustomText(
+                    title: title,
+                    textColor: brand,
+                    fontSize: SizeUtils.screenWidth / 25 + 8,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 Positioned(
                   right: 0,
+                  top: 25,
                   child: RollingSwitch.icon(
-                    width: 70,
+                    width: 78,
                     height: 30,
                     innerSize: 24,
                     rollingInfoRight: const RollingIconInfo(
                         icon: Icons.flag,
-                        text: Text('Bn'),
+                        text: Text('BN'),
                         backgroundColor: brand),
                     rollingInfoLeft: const RollingIconInfo(
                       icon: Icons.check,
                       backgroundColor: Colors.blue,
-                      text: Text('En'),
+                      text: Text('EN'),
                     ),
                     onChanged: (value) {
                       context.read<LanguageBloc>().add(ChangeLanguage(

@@ -45,6 +45,7 @@ dependencies:
   hive: ^2.0.5
   hive_flutter: ^1.1.0
   page_transition: ^2.0.4
+  animations: ^2.0.4
   sms_autofill: ^2.2.0
   rolling_switch: ^0.0.2
 

@@ -1,3 +1,4 @@
+import 'package:animations/animations.dart';
 import 'package:avijatrik_hotel_supplier_app/l10n/l10n.dart';
 import 'package:avijatrik_hotel_supplier_app/screens/bid-alerts/bid_alerts.dart';
 import 'package:avijatrik_hotel_supplier_app/screens/help/help.dart';
@@ -17,7 +18,7 @@ class Layout extends StatefulWidget {
 }
 
 class _LayoutState extends State<Layout> {
-  final screens = [
+  final List<Widget> screens = <Widget>[
     const HomeScreen(),
     const ProfileScreen(),
     const BidAlertScreen(),
@@ -30,20 +31,33 @@ class _LayoutState extends State<Layout> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: CustomAppBar(title: AppLocalizations.of(context)!.appbarTitle),
-      body: screens[_currentIndex],
+      body: PageTransitionSwitcher(
+        transitionBuilder: ((child, primaryAnimation, secondaryAnimation) =>
+            FadeThroughTransition(
+              animation: primaryAnimation,
+              secondaryAnimation: secondaryAnimation,
+              child: child,
+            )),
+        child: IndexedStack(
+          index: _currentIndex,
+          children: screens,
+        ),
+      ),
       bottomNavigationBar: SizedBox(
         height: 100,
         child: BottomNavigationBar(
             currentIndex: _currentIndex,
-            onTap: ((index) => setState(() => _currentIndex = index)),
+            onTap: ((index) {
+              setState(() => _currentIndex = index);
+            }),
             // to add more than 3 navigation item we need to set BottomNavigationBarType.type property to fixed
             type: BottomNavigationBarType.fixed,
             unselectedLabelStyle: const TextStyle(
-              color: navigationLabelInactive,
+              color: greenLight,
               fontSize: 16,
               fontWeight: FontWeight.w500,
             ),
-            unselectedItemColor: navigationLabelInactive,
+            unselectedItemColor: greenLight,
             selectedLabelStyle: const TextStyle(
               color: primaryWhite,
               fontSize: 16,

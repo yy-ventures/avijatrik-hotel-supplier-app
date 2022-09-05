@@ -7,6 +7,7 @@ class FooterButton extends StatelessWidget {
     Key? key,
     required this.text,
     required this.onPressed,
+    this.height = 52,
     this.color = brand,
     this.textColor = primaryWhite,
     this.iconColor = primaryWhite,
@@ -14,6 +15,7 @@ class FooterButton extends StatelessWidget {
     this.isLoading = false,
   }) : super(key: key);
 
+  final double height;
   final String text;
   final Color color;
   final Color textColor;
@@ -29,16 +31,16 @@ class FooterButton extends StatelessWidget {
       color: color,
       disabledColor: disableColor,
       elevation: 0,
-      height: 52,
+      height: height,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(50),
       ),
-      padding: const EdgeInsets.only(left: 50, right: 50),
+      padding: EdgeInsets.only(left: height, right: height),
       child: isLoading
-          ? const SizedBox(
-              height: 25,
-              width: 25,
-              child: CircularProgressIndicator(
+          ? SizedBox(
+              height: height / 2,
+              width: height / 2,
+              child: const CircularProgressIndicator(
                 strokeWidth: 2,
                 valueColor: AlwaysStoppedAnimation<Color>(primaryWhite),
               ),

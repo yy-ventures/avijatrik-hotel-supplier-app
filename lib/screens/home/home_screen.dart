@@ -3,6 +3,7 @@ import 'package:avijatrik_hotel_supplier_app/screens/layout/layout.dart';
 import 'package:avijatrik_hotel_supplier_app/widgets/appbar/appbar.dart';
 
 import 'package:avijatrik_hotel_supplier_app/utils/index.dart';
+import 'package:avijatrik_hotel_supplier_app/widgets/custom/custom_text.dart';
 import 'package:avijatrik_hotel_supplier_app/widgets/navigation/navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

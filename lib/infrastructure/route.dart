@@ -41,6 +41,24 @@ class AppRoute {
           type: PageTransitionType.rightToLeft,
           settings: settings,
         );
+      case '/profile':
+        return PageTransition<dynamic>(
+          child: const Layout(),
+          type: PageTransitionType.rightToLeft,
+          settings: settings,
+        );
+      case '/bid-alerts':
+        return PageTransition<dynamic>(
+          child: const Layout(),
+          type: PageTransitionType.rightToLeft,
+          settings: settings,
+        );
+      case '/help':
+        return PageTransition<dynamic>(
+          child: const Layout(),
+          type: PageTransitionType.rightToLeft,
+          settings: settings,
+        );
       default:
         return PageTransition<dynamic>(
           child: const SplashScreen(),
