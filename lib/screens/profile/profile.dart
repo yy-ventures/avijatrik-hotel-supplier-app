@@ -121,7 +121,7 @@ class ProfileScreen extends StatelessWidget {
                   child: FooterButton(
                     height: 40,
                     text: 'Sign Out',
-                    color: grey,
+                    color: lightGrey,
                     textColor: black50,
                     onPressed: () {},
                   ),

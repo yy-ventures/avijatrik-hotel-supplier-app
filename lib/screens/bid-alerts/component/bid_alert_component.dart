@@ -17,6 +17,7 @@ class BidAlertComponent extends StatelessWidget {
         const CustomText(
           title: 'Bid ID',
           textColor: black50,
+          fontWeight: FontWeight.bold,
         ),
         const SizedBox(
           height: 10,
@@ -30,15 +31,20 @@ class BidAlertComponent extends StatelessWidget {
                 const CustomText(
                   title: 'Time remaining',
                   textColor: black50,
+                  fontSize: 14,
                 ),
                 const SizedBox(
                   width: 10,
                 ),
                 Container(
-                  color: grey,
-                  child: const CustomText(
-                    title: 'Timer',
-                    textColor: black50,
+                  color: lightGrey,
+                  child: const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                    child: CustomText(
+                      title: '14:23',
+                      textColor: black50,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 )
               ],
@@ -57,7 +63,7 @@ class BidAlertComponent extends StatelessWidget {
                 height: 1,
                 color: brand,
               )
-            : SizedBox(),
+            : const SizedBox(),
       ],
     );
   }

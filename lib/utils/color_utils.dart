@@ -1,6 +1,8 @@
 import 'package:avijatrik_hotel_supplier_app/utils/index.dart';
 import 'package:flutter/material.dart';
 
+// Red
+const Color redNotification = Color(0xFFE13255);
 //Green
 const Color brand = Color(0xFF1FA67D);
 const Color greenLight = Color(0xFF5AF5C6);
@@ -20,8 +22,6 @@ const Color black40 = Color(0xFFA0A0A0);
 const Color black20 = Color(0xFFCFD0D0);
 const Color blackOverlay = Color(0xFFDBDBDB);
 const Color blackOpacity = Color(0xFFF2F2F2);
-
-const Color grey = Color(0xFFEBEBEB);
 
 //Blue
 const Color primaryBlue = Color(0xFF4082E4);
@@ -61,7 +61,8 @@ const Color successOpacity = Color(0xFFE3F7EE);
 
 //White
 const Color primaryWhite = Color(0xFFFFFFFF);
-
+const Color white80 = Color(0xFFF6F6F6);
+const Color lightGrey = Color(0xFFEBEBEB);
 //Other
 const Color whiteBackGroundColor = Color(0xFFFFFFFF); //Color(0xFFE5E5E5);
 const Color backGroundColor = Color(0xFFF5F5F5);

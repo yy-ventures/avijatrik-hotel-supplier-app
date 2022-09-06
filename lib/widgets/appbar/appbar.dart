@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:rolling_switch/rolling_switch.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -54,17 +55,11 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               alignment: Alignment.center,
               children: <Widget>[
                 Positioned(
-                  bottom: 25,
-                  child: CustomText(
-                    title: title,
-                    textColor: brand,
-                    fontSize: SizeUtils.screenWidth / 25 + 8,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  child:
+                      SvgPicture.asset('assets/logos/avijatrik_logo_green.svg'),
                 ),
                 Positioned(
                   right: 0,
-                  top: 25,
                   child: RollingSwitch.icon(
                     width: 78,
                     height: 30,

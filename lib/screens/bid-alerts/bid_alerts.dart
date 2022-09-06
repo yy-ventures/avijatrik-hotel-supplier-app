@@ -37,9 +37,42 @@ class BidAlertScreen extends StatelessWidget {
               textColor: black50,
               fontWeight: FontWeight.w500,
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 50),
-              child: BidAlertComponent(),
+            Expanded(
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 50, vertical: 40),
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.vertical,
+                  reverse: false,
+                  child: ConstrainedBox(
+                    constraints: BoxConstraints(
+                        minHeight: SizeUtils.screenHeight -
+                            appBarHeight -
+                            bottomNavHeight -
+                            300),
+                    child: Column(
+                      children: const [
+                        BidAlertComponent(),
+                        SizedBox(height: 10),
+                        BidAlertComponent(),
+                        SizedBox(height: 10),
+                        BidAlertComponent(),
+                        SizedBox(height: 10),
+                        BidAlertComponent(),
+                        SizedBox(height: 10),
+                        BidAlertComponent(),
+                        SizedBox(height: 10),
+                        BidAlertComponent(),
+                        SizedBox(height: 10),
+                        BidAlertComponent(),
+                        SizedBox(height: 10),
+                        BidAlertComponent(),
+                        SizedBox(height: 10),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
             ),
           ],
         ));

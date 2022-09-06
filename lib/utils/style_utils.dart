@@ -14,6 +14,7 @@ const double rectangleBtnBorderRadius = 6;
 const double borderWidth = 1;
 
 const double appBarHeight = 120;
+const double bottomNavHeight = 100;
 const double iconSplashRadius = 30;
 
 const double headerTextFontSIze = 20;
@@ -22,3 +23,5 @@ const double labelTextFontSIze = 16;
 const double subTitleFontSIze = 15;
 
 const double avatarRadius = 90;
+
+const double bidCardHeight = 300;

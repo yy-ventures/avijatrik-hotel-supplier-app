@@ -8,6 +8,7 @@ class FooterButton extends StatelessWidget {
     required this.text,
     required this.onPressed,
     this.height = 52,
+    this.decreasePadding = 0,
     this.color = brand,
     this.textColor = primaryWhite,
     this.iconColor = primaryWhite,
@@ -16,6 +17,7 @@ class FooterButton extends StatelessWidget {
   }) : super(key: key);
 
   final double height;
+  final double decreasePadding;
   final String text;
   final Color color;
   final Color textColor;
@@ -35,7 +37,8 @@ class FooterButton extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(50),
       ),
-      padding: EdgeInsets.only(left: height, right: height),
+      padding: EdgeInsets.only(
+          left: height - decreasePadding, right: height - decreasePadding),
       child: isLoading
           ? SizedBox(
               height: height / 2,

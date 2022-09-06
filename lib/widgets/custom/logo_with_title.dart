@@ -13,7 +13,7 @@ class LogoWithTitle extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         SvgPicture.asset(
-          'assets/images/logo.svg',
+          'assets/logos/logo.svg',
         ),
         const SizedBox(height: 25),
         const CustomText(

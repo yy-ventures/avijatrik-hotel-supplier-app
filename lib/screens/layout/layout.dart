@@ -5,6 +5,7 @@ import 'package:avijatrik_hotel_supplier_app/screens/help/help.dart';
 import 'package:avijatrik_hotel_supplier_app/screens/home/home_screen.dart';
 import 'package:avijatrik_hotel_supplier_app/screens/profile/profile.dart';
 import 'package:avijatrik_hotel_supplier_app/utils/color_utils.dart';
+import 'package:avijatrik_hotel_supplier_app/utils/index.dart';
 import 'package:avijatrik_hotel_supplier_app/widgets/appbar/appbar.dart';
 import 'package:avijatrik_hotel_supplier_app/widgets/navigation/navigation.dart';
 import 'package:flutter/material.dart';
@@ -44,7 +45,7 @@ class _LayoutState extends State<Layout> {
         ),
       ),
       bottomNavigationBar: SizedBox(
-        height: 100,
+        height: bottomNavHeight,
         child: BottomNavigationBar(
             currentIndex: _currentIndex,
             onTap: ((index) {
