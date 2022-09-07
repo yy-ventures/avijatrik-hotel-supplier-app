@@ -11,38 +11,27 @@ class MyBidsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SizeUtils().init(context);
-    final double bidScreenPadding = SizeUtils.screenWidth * 0.05;
+    // final double bidScreenPadding = SizeUtils.screenWidth * 0.05;
 
-    return Padding(
-      padding: EdgeInsets.fromLTRB(
-          bidScreenPadding, bidScreenPadding, bidScreenPadding, 0),
-      child: Column(
-        children: [
-          SizedBox(height: 5),
-          const CustomText(
-            title: 'Hotel The Cox Today',
-            textColor: brand,
-            fontSize: 25,
-            fontWeight: FontWeight.bold,
-          ),
-          SizedBox(height: 20),
-          Expanded(
-            child: SingleChildScrollView(
-              child: Wrap(
-                runSpacing: 20,
-                children: const <Widget>[
-                  SingleBidComponent(),
-                  SingleBidComponent(
-                    expired: true,
-                  ),
-                  SingleBidComponent(),
-                  SingleBidComponent(),
-                ],
-              ),
+    return Column(
+      children: [
+        SizedBox(height: 20),
+        Expanded(
+          child: SingleChildScrollView(
+            child: Wrap(
+              runSpacing: 20,
+              children: const <Widget>[
+                SingleBidComponent(),
+                SingleBidComponent(
+                  expired: true,
+                ),
+                SingleBidComponent(),
+                SingleBidComponent(),
+              ],
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
