@@ -12,70 +12,61 @@ class BidAlertScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     SizeUtils().init(context);
 
-    return Container(
-        color: primaryWhite,
-        child: Column(
-          children: [
-            ClipPath(
-              clipper: CustomClipPath(),
-              child: Container(
-                alignment: Alignment.topCenter,
-                height: SizeUtils.screenHeight * 0.25,
-                color: brand,
-                child: Padding(
-                  padding: EdgeInsets.symmetric(
-                      vertical: (SizeUtils.screenHeight * 0.31) / 5),
-                  child: SvgPicture.asset(
-                    'assets/icons/alert_icon.svg',
-                    fit: BoxFit.scaleDown,
-                  ),
-                ),
-              ),
-            ),
-            const CustomText(
-              title: 'This Week',
-              textColor: black50,
-              fontWeight: FontWeight.w500,
-            ),
-            Expanded(
-              child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 50, vertical: 40),
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.vertical,
-                  reverse: false,
-                  child: ConstrainedBox(
-                    constraints: BoxConstraints(
-                        minHeight: SizeUtils.screenHeight -
-                            appBarHeight -
-                            bottomNavHeight -
-                            300),
-                    child: Column(
-                      children: const [
-                        BidAlertComponent(),
-                        SizedBox(height: 10),
-                        BidAlertComponent(),
-                        SizedBox(height: 10),
-                        BidAlertComponent(),
-                        SizedBox(height: 10),
-                        BidAlertComponent(),
-                        SizedBox(height: 10),
-                        BidAlertComponent(),
-                        SizedBox(height: 10),
-                        BidAlertComponent(),
-                        SizedBox(height: 10),
-                        BidAlertComponent(),
-                        SizedBox(height: 10),
-                        BidAlertComponent(),
-                        SizedBox(height: 10),
-                      ],
+    return Expanded(
+      child: SingleChildScrollView(
+        child: Container(
+            color: primaryWhite,
+            child: Column(
+              children: [
+                ClipPath(
+                  clipper: CustomClipPath(),
+                  child: Container(
+                    alignment: Alignment.topCenter,
+                    height: SizeUtils.screenHeight * 0.25,
+                    color: brand,
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(
+                          vertical: (SizeUtils.screenHeight * 0.31) / 5),
+                      child: SvgPicture.asset(
+                        'assets/icons/alert_icon.svg',
+                        fit: BoxFit.scaleDown,
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ),
-          ],
-        ));
+                const CustomText(
+                  title: 'This Week',
+                  textColor: black50,
+                  fontWeight: FontWeight.w500,
+                ),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 30, vertical: 40),
+                  child: Column(
+                    children: const [
+                      BidAlertComponent(),
+                      SizedBox(height: 10),
+                      BidAlertComponent(),
+                      SizedBox(height: 10),
+                      BidAlertComponent(),
+                      SizedBox(height: 10),
+                      BidAlertComponent(),
+                      SizedBox(height: 10),
+                      BidAlertComponent(),
+                      SizedBox(height: 10),
+                      BidAlertComponent(),
+                      SizedBox(height: 10),
+                      BidAlertComponent(),
+                      SizedBox(height: 10),
+                      BidAlertComponent(),
+                      SizedBox(height: 10),
+                    ],
+                  ),
+                ),
+              ],
+            )),
+      ),
+    );
   }
 }
 

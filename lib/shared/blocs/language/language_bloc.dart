@@ -37,8 +37,12 @@ class LanguageBloc extends Bloc<LanguageEvent, LanguageState> {
       AppKeys.languageCode,
       event.languageCode,
     );
-    emit(LanguageState(
-        toggle: event.toggle, locale: Locale(event.languageCode)));
+    emit(
+      LanguageState(
+        toggle: event.toggle,
+        locale: Locale(event.languageCode),
+      ),
+    );
   }
 
   static String selectedLanguage() {

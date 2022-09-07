@@ -1,4 +1,5 @@
 import 'package:avijatrik_hotel_supplier_app/utils/color_utils.dart';
+import 'package:avijatrik_hotel_supplier_app/utils/index.dart';
 import 'package:avijatrik_hotel_supplier_app/widgets/custom/custom_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/src/foundation/key.dart';
@@ -20,6 +21,8 @@ class PreferenceTile extends StatelessWidget {
         child: CustomText(
           title: text,
           textColor: black50,
+          fontSize: bidCardDetailsFontSize,
+          fontWeight: FontWeight.w500,
         ),
       ),
     );

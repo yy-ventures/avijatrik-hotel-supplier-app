@@ -52,6 +52,7 @@ class BidAlertComponent extends StatelessWidget {
             const CustomText(
               title: 'Bid details >',
               textColor: black50,
+              fontSize: 14,
             ),
           ],
         ),

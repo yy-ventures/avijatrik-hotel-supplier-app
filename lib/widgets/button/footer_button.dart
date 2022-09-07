@@ -7,6 +7,7 @@ class FooterButton extends StatelessWidget {
     Key? key,
     required this.text,
     required this.onPressed,
+    this.fontSize = 18,
     this.height = 52,
     this.decreasePadding = 0,
     this.color = brand,
@@ -18,6 +19,7 @@ class FooterButton extends StatelessWidget {
 
   final double height;
   final double decreasePadding;
+  final double fontSize;
   final String text;
   final Color color;
   final Color textColor;
@@ -52,7 +54,7 @@ class FooterButton extends StatelessWidget {
               title: text,
               textColor: onPressed == null ? disableTextColor : textColor,
               fontWeight: FontWeight.w700,
-              fontSize: 18,
+              fontSize: fontSize,
             ),
     );
   }

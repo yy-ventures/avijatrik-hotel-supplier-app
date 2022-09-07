@@ -25,19 +25,22 @@ class ProfileScreen extends StatelessWidget {
             children: [
               ClipPath(
                 clipper: CustomClipPath(),
-                child: Container(
-                  height: SizeUtils.screenHeight * 0.31,
-                  color: brand,
+                child: IntrinsicHeight(
+                  child: Container(
+                    height: SizeUtils.screenHeight * 0.27,
+                    color: brand,
+                  ),
                 ),
               ),
-              Positioned(
-                top: SizeUtils.screenHeight * 0.1,
-                child: const CircleAvatar(
+              const Positioned(
+                bottom: 0,
+                child: CircleAvatar(
                   backgroundColor: greenLight,
                   radius: avatarRadius,
                   child: CircleAvatar(
-                    backgroundImage:
-                        AssetImage('assets/images/profile-img.png'),
+                    backgroundColor: Colors.cyan,
+                    // backgroundImage:
+                    //     AssetImage('assets/images/profile-img.png'),
                     radius: avatarRadius - 5,
                   ),
                 ),
@@ -115,7 +118,7 @@ class ProfileScreen extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
                 const SizedBox(
-                  height: 42,
+                  height: 34,
                 ),
                 Center(
                   child: FooterButton(
@@ -143,7 +146,7 @@ class CustomClipPath extends CustomClipper<Path> {
 
     final path = Path();
     path.lineTo(0, h / 1.6);
-    path.quadraticBezierTo(w * 0.5, h / 1.2, w, h / 1.6);
+    path.quadraticBezierTo(w * 0.5, h / 1.25, w, h / 1.6);
     path.lineTo(w, 0);
     path.close();
 

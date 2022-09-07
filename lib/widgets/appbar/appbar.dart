@@ -50,45 +50,35 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             width: SizeUtils.screenWidth,
             height: appBarHeight,
             child: Stack(
-              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              // crossAxisAlignment: CrossAxisAlignment.center,
               alignment: Alignment.center,
               children: <Widget>[
                 Positioned(
-                  child:
-                      SvgPicture.asset('assets/logos/avijatrik_logo_green.svg'),
+                  child: SvgPicture.asset(
+                    'assets/logos/avijatrik_logo_green.svg',
+                  ),
                 ),
                 Positioned(
                   right: 0,
                   child: RollingSwitch.icon(
-                    width: 78,
+                    width: 70,
                     height: 30,
-                    innerSize: 24,
+                    innerSize: 20,
                     rollingInfoRight: const RollingIconInfo(
-                        icon: Icons.flag,
-                        text: Text('BN'),
-                        backgroundColor: brand),
+                      icon: Icons.flag,
+                      text: Text('BN'),
+                      backgroundColor: brand,
+                    ),
                     rollingInfoLeft: const RollingIconInfo(
                       icon: Icons.check,
                       backgroundColor: Colors.blue,
                       text: Text('EN'),
                     ),
-                    onChanged: (value) {
-                      context.read<LanguageBloc>().add(ChangeLanguage(
-                          toggle: value,
-                          languageCode: value == false ? 'en' : 'bn'));
-                    },
-                  )
-                  // CupertinoSwitch(
-                  //   value: state.toggle,
-                  //   onChanged: (value) {
-                  //     context.read<LanguageBloc>().add(ChangeLanguage(
-                  //         toggle: value,
-                  //         languageCode: value == false ? 'en' : 'bn'));
-                  //   },
-                  //   activeColor: brand,
-                  // )
-                  ,
+                    onChanged: (value) =>
+                        context.read<LanguageBloc>().add(ChangeLanguage(
+                              toggle: value,
+                              languageCode: value == false ? 'en' : 'bn',
+                            )),
+                  ),
                 )
               ],
             ),

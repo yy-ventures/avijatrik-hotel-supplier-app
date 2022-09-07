@@ -55,41 +55,82 @@ class _LayoutState extends State<Layout> {
             type: BottomNavigationBarType.fixed,
             unselectedLabelStyle: const TextStyle(
               color: greenLight,
-              fontSize: 16,
+              fontSize: bottomNavigationLabelFontSize,
               fontWeight: FontWeight.w500,
+              letterSpacing: 1,
             ),
             unselectedItemColor: greenLight,
             selectedLabelStyle: const TextStyle(
               color: primaryWhite,
-              fontSize: 16,
+              fontSize: bottomNavigationLabelFontSize,
               fontWeight: FontWeight.w500,
+              letterSpacing: 1,
             ),
             selectedItemColor: primaryWhite,
             backgroundColor: brand,
             items: [
               BottomNavigationBarItem(
-                icon: SvgPicture.asset('assets/icons/navigation_home.svg'),
-                activeIcon:
-                    SvgPicture.asset('assets/icons/navigation_home_active.svg'),
+                icon: Padding(
+                  padding: const EdgeInsets.only(
+                    bottom: bottomNavigationIconPadding,
+                  ),
+                  child: SvgPicture.asset('assets/icons/navigation_home.svg'),
+                ),
+                activeIcon: Padding(
+                  padding: const EdgeInsets.only(
+                    bottom: bottomNavigationIconPadding,
+                  ),
+                  child: SvgPicture.asset(
+                      'assets/icons/navigation_home_active.svg'),
+                ),
                 label: 'Home',
                 backgroundColor: whiteBackGroundColor,
               ),
               BottomNavigationBarItem(
-                icon: SvgPicture.asset('assets/icons/profile.svg'),
-                activeIcon: SvgPicture.asset('assets/icons/profile_active.svg'),
+                icon: Padding(
+                  padding: const EdgeInsets.only(
+                    bottom: bottomNavigationIconPadding,
+                  ),
+                  child: SvgPicture.asset('assets/icons/profile.svg'),
+                ),
+                activeIcon: Padding(
+                  padding: const EdgeInsets.only(
+                    bottom: bottomNavigationIconPadding,
+                  ),
+                  child: SvgPicture.asset('assets/icons/profile_active.svg'),
+                ),
                 label: 'Profile',
                 backgroundColor: whiteBackGroundColor,
               ),
               BottomNavigationBarItem(
-                icon: SvgPicture.asset('assets/icons/bid_alert.svg'),
-                activeIcon:
-                    SvgPicture.asset('assets/icons/bid_alert_active.svg'),
+                icon: Padding(
+                  padding: const EdgeInsets.only(
+                    bottom: bottomNavigationIconPadding,
+                  ),
+                  child: SvgPicture.asset('assets/icons/bid_alert.svg'),
+                ),
+                activeIcon: Padding(
+                  padding: const EdgeInsets.only(
+                    bottom: bottomNavigationIconPadding,
+                  ),
+                  child: SvgPicture.asset('assets/icons/bid_alert_active.svg'),
+                ),
                 label: 'Bid Alerts',
                 backgroundColor: whiteBackGroundColor,
               ),
               BottomNavigationBarItem(
-                icon: SvgPicture.asset('assets/icons/help.svg'),
-                activeIcon: SvgPicture.asset('assets/icons/help_active.svg'),
+                icon: Padding(
+                  padding: const EdgeInsets.only(
+                    bottom: bottomNavigationIconPadding,
+                  ),
+                  child: SvgPicture.asset('assets/icons/help.svg'),
+                ),
+                activeIcon: Padding(
+                  padding: const EdgeInsets.only(
+                    bottom: bottomNavigationIconPadding,
+                  ),
+                  child: SvgPicture.asset('assets/icons/help_active.svg'),
+                ),
                 label: 'Help',
                 backgroundColor: whiteBackGroundColor,
               ),
