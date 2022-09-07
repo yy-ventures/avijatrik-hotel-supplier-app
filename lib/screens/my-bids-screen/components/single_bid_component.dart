@@ -34,7 +34,6 @@ class SingleBidComponent extends StatelessWidget {
                   const CustomText(
                     title: 'Bid No. 12',
                     textColor: black50,
-                    fontSize: 20,
                     fontWeight: FontWeight.bold,
                   ),
                   const SizedBox(height: 10),
@@ -42,24 +41,28 @@ class SingleBidComponent extends StatelessWidget {
                   const CustomText(
                     title: 'Check-in date: 12 Sep, 2022',
                     textColor: black50,
+                    fontSize: bidCardDetailsFontSize,
                     fontWeight: FontWeight.w500,
                   ),
                   const SizedBox(height: 6),
                   const CustomText(
                     title: 'Check-out date: 14 Sep, 2022',
                     textColor: black50,
+                    fontSize: bidCardDetailsFontSize,
                     fontWeight: FontWeight.w500,
                   ),
                   const SizedBox(height: 6),
                   const CustomText(
                     title: 'Room category: Deluxe Couple',
                     textColor: black50,
+                    fontSize: bidCardDetailsFontSize,
                     fontWeight: FontWeight.bold,
                   ),
                   const SizedBox(height: 6),
                   const CustomText(
                     title: 'Price range: 2000 - 500 BDT',
                     textColor: black50,
+                    fontSize: bidCardDetailsFontSize,
                     fontWeight: FontWeight.w500,
                   ),
                   const SizedBox(height: 6),
@@ -68,12 +71,14 @@ class SingleBidComponent extends StatelessWidget {
                       CustomText(
                         title: 'Room(s) needed: 01',
                         textColor: black50,
+                        fontSize: bidCardDetailsFontSize,
                         fontWeight: FontWeight.w500,
                       ),
                       SizedBox(width: 36),
                       CustomText(
                         title: 'Pax: 02',
                         textColor: black50,
+                        fontSize: bidCardDetailsFontSize,
                         fontWeight: FontWeight.w500,
                       ),
                     ],
@@ -97,6 +102,7 @@ class SingleBidComponent extends StatelessWidget {
                         children: <Widget>[
                           FooterButton(
                             text: 'Submit Bid',
+                            fontSize: bidCardDetailsFontSize,
                             height: 32,
                             decreasePadding: 20,
                             onPressed: () {},
@@ -104,6 +110,7 @@ class SingleBidComponent extends StatelessWidget {
                           const SizedBox(width: 7),
                           FooterButton(
                             color: redNotification,
+                            fontSize: bidCardDetailsFontSize,
                             text: 'Cancel Bid',
                             height: 32,
                             decreasePadding: 20,
@@ -114,6 +121,7 @@ class SingleBidComponent extends StatelessWidget {
                       const CustomText(
                         title: 'Bid details >',
                         textColor: black50,
+                        fontSize: bidCardDetailsFontSize,
                         fontWeight: FontWeight.w500,
                       )
                     ],
@@ -138,6 +146,7 @@ class SingleBidComponent extends StatelessWidget {
               child: Center(
                 child: CustomText(
                   title: expired ? 'Expired Bid' : 'Active Bid',
+                  fontSize: bidCardDetailsFontSize + 2,
                   fontWeight: FontWeight.w500,
                 ),
               ),
@@ -157,7 +166,7 @@ class SingleBidComponent extends StatelessWidget {
                 child: CustomText(
                   title: '14:23',
                   textColor: black50,
-                  fontSize: 24,
+                  fontSize: bidCardTimerFontSize,
                   fontWeight: FontWeight.bold,
                 ),
               ),
