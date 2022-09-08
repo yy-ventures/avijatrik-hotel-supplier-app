@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 const Color redNotification = Color(0xFFE13255);
 //Green
 const Color brand = Color(0xFF1FA67D);
+const Color brandShadow = Color(0xFF1B8A68);
 const Color greenLight = Color(0xFF5AF5C6);
 const Color green80 = Color(0xFF4CB897);
 const Color green60 = Color(0xFF79CAB1);

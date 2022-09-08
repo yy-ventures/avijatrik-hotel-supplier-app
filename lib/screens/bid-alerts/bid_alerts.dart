@@ -12,6 +12,8 @@ class BidAlertScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     SizeUtils().init(context);
 
+    const int itemCount = 10;
+
     return Expanded(
       child: SingleChildScrollView(
         child: Container(
@@ -43,23 +45,16 @@ class BidAlertScreen extends StatelessWidget {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 30, vertical: 40),
                   child: Column(
-                    children: const [
-                      BidAlertComponent(),
-                      SizedBox(height: 10),
-                      BidAlertComponent(),
-                      SizedBox(height: 10),
-                      BidAlertComponent(),
-                      SizedBox(height: 10),
-                      BidAlertComponent(),
-                      SizedBox(height: 10),
-                      BidAlertComponent(),
-                      SizedBox(height: 10),
-                      BidAlertComponent(),
-                      SizedBox(height: 10),
-                      BidAlertComponent(),
-                      SizedBox(height: 10),
-                      BidAlertComponent(),
-                      SizedBox(height: 10),
+                    children: [
+                      for (var i = 0; i < itemCount; i++)
+                        Column(
+                          children: const <Widget>[
+                            BidAlertComponent(),
+                            SizedBox(
+                              height: 10,
+                            )
+                          ],
+                        )
                     ],
                   ),
                 ),

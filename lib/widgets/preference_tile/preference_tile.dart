@@ -17,7 +17,7 @@ class PreferenceTile extends StatelessWidget {
         borderRadius: BorderRadius.circular(15),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
         child: CustomText(
           title: text,
           textColor: black50,

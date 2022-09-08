@@ -1,5 +1,7 @@
+import 'package:avijatrik_hotel_supplier_app/screens/bid-details/bid_details.dart';
 import 'package:avijatrik_hotel_supplier_app/screens/index.dart';
 import 'package:avijatrik_hotel_supplier_app/screens/layout/layout.dart';
+import 'package:avijatrik_hotel_supplier_app/screens/my-bids-screen/my_bids_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 
@@ -41,22 +43,30 @@ class AppRoute {
           type: PageTransitionType.rightToLeft,
           settings: settings,
         );
-      case '/profile':
+      // case '/profile':
+      //   return PageTransition<dynamic>(
+      //     child: const Layout(),
+      //     type: PageTransitionType.rightToLeft,
+      //     settings: settings,
+      //   );
+      // case '/bid-alerts':
+      //   return PageTransition<dynamic>(
+      //     child: const Layout(),
+      //     type: PageTransitionType.rightToLeft,
+      //     settings: settings,
+      //   );
+      // case '/help':
+      //   return PageTransition<dynamic>(
+      //     child: const Layout(),
+      //     type: PageTransitionType.rightToLeft,
+      //     settings: settings,
+      //   );
+      case '/bid-details':
         return PageTransition<dynamic>(
-          child: const Layout(),
-          type: PageTransitionType.rightToLeft,
-          settings: settings,
-        );
-      case '/bid-alerts':
-        return PageTransition<dynamic>(
-          child: const Layout(),
-          type: PageTransitionType.rightToLeft,
-          settings: settings,
-        );
-      case '/help':
-        return PageTransition<dynamic>(
-          child: const Layout(),
-          type: PageTransitionType.rightToLeft,
+          child: const BidDetails(),
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeInOut,
+          type: PageTransitionType.fade,
           settings: settings,
         );
       default:

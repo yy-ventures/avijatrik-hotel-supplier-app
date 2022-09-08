@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_switch/flutter_switch.dart';
 import 'package:rolling_switch/rolling_switch.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -15,12 +16,14 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.background = primaryWhite,
     this.elevation = 10,
     this.statusbarTransparent = false,
+    this.logo = true,
   }) : super(key: key);
 
   final String title;
   final Color background;
   final double elevation;
   final bool statusbarTransparent;
+  final bool logo;
 
   @override
   Size get preferredSize => const Size.fromHeight(appBarHeight);
@@ -46,38 +49,61 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           automaticallyImplyLeading: false,
           centerTitle: true,
           toolbarHeight: appBarHeight,
-          title: Container(
+          title: SizedBox(
             width: SizeUtils.screenWidth,
             height: appBarHeight,
             child: Stack(
               alignment: Alignment.center,
               children: <Widget>[
-                Positioned(
-                  child: SvgPicture.asset(
-                    'assets/logos/avijatrik_logo_green.svg',
-                  ),
-                ),
+                logo
+                    ? const SizedBox()
+                    : Positioned(
+                        left: 0,
+                        child: GestureDetector(
+                          onTap: (() => Navigator.pop(context)),
+                          child: Container(
+                            color: Colors.transparent,
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 34, vertical: 12.0),
+                              child: SvgPicture.asset(
+                                'assets/icons/back.svg',
+                                width: 15,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                logo
+                    ? Positioned(
+                        child: SvgPicture.asset(
+                          'assets/logos/avijatrik_logo_green.svg',
+                        ),
+                      )
+                    : CustomText(
+                        title: title,
+                        textColor: brand,
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                      ),
                 Positioned(
                   right: 0,
-                  child: RollingSwitch.icon(
-                    width: 70,
-                    height: 30,
-                    innerSize: 20,
-                    rollingInfoRight: const RollingIconInfo(
-                      icon: Icons.flag,
-                      text: Text('BN'),
-                      backgroundColor: brand,
-                    ),
-                    rollingInfoLeft: const RollingIconInfo(
-                      icon: Icons.check,
-                      backgroundColor: Colors.blue,
-                      text: Text('EN'),
-                    ),
-                    onChanged: (value) =>
-                        context.read<LanguageBloc>().add(ChangeLanguage(
-                              toggle: value,
-                              languageCode: value == false ? 'en' : 'bn',
-                            )),
+                  child: FlutterSwitch(
+                    valueFontSize: 20,
+                    showOnOff: true,
+                    activeColor: brand,
+                    activeText: 'BN',
+                    activeTextColor: primaryWhite,
+                    inactiveColor: primaryBlue,
+                    inactiveText: 'EN',
+                    inactiveTextColor: primaryWhite,
+                    value: state.toggle,
+                    onToggle: ((value) => context.read<LanguageBloc>().add(
+                          ChangeLanguage(
+                            toggle: value,
+                            languageCode: value == false ? 'en' : 'bn',
+                          ),
+                        )),
                   ),
                 )
               ],
