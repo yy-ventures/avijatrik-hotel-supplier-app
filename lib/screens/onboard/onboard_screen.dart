@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:avijatrik_hotel_supplier_app/utils/index.dart';
 import 'package:avijatrik_hotel_supplier_app/widgets/appbar/appbar.dart';
 import 'package:avijatrik_hotel_supplier_app/widgets/custom/logo_with_title.dart';
@@ -18,6 +20,11 @@ class OnboardScreen extends StatelessWidget {
     // Initializing the SizeUtils Custom Class
     SizeUtils().init(context);
 
+    //Move to the next screen
+    Timer(Duration(seconds: 1), () {
+      Navigator.popAndPushNamed(context, '/home');
+    });
+
     // UI
     return Scaffold(
       extendBodyBehindAppBar: true,
@@ -25,6 +32,7 @@ class OnboardScreen extends StatelessWidget {
       appBar: const CustomAppBar(
         statusbarTransparent: true,
         elevation: 0,
+        logo: false,
       ),
       body: Column(
         children: [

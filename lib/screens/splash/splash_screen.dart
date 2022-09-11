@@ -1,7 +1,7 @@
-import 'package:avijatrik_hotel_supplier_app/widgets/appbar/appbar.dart';
+import 'dart:async';
 
+import 'package:avijatrik_hotel_supplier_app/screens/onboard/onboard_screen.dart';
 import 'package:avijatrik_hotel_supplier_app/utils/index.dart';
-import 'package:avijatrik_hotel_supplier_app/widgets/custom/custom_text.dart';
 import 'package:avijatrik_hotel_supplier_app/widgets/custom/logo_with_title.dart';
 import 'package:flutter/material.dart';
 
@@ -12,6 +12,9 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     SizeUtils().init(context);
 
+    Timer(Duration(seconds: 1), () {
+      Navigator.popAndPushNamed(context, '/on-board');
+    });
     return Scaffold(
       // extendBodyBehindAppBar: true,
       // appBar: const CustomAppBar(

@@ -1,13 +1,10 @@
-import 'package:avijatrik_hotel_supplier_app/utils/color_utils.dart';
+import 'package:avijatrik_hotel_supplier_app/blocs/bottom_navigation_bloc/bottom_navigation_bloc.dart';
 import 'package:avijatrik_hotel_supplier_app/widgets/appbar/appbar.dart';
 import 'package:avijatrik_hotel_supplier_app/widgets/bid_info/bid_info.dart';
-import 'package:avijatrik_hotel_supplier_app/widgets/button/custom_radio_button.dart';
-import 'package:avijatrik_hotel_supplier_app/widgets/custom/custom_text.dart';
+import 'package:avijatrik_hotel_supplier_app/widgets/navigation/navigation_bottom.dart';
 import 'package:avijatrik_hotel_supplier_app/widgets/preference_container/preference_container.dart';
-import 'package:avijatrik_hotel_supplier_app/widgets/preference_tile/preference_tile.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BidDetails extends StatefulWidget {
   const BidDetails({Key? key}) : super(key: key);
@@ -37,6 +34,7 @@ class _BidDetailsState extends State<BidDetails> {
       'Mini Bar',
       'Car Parking',
       'Pool',
+      'Work Desk'
     ];
     final List<String> secondaryPreferences = [
       'AC',
@@ -55,38 +53,44 @@ class _BidDetailsState extends State<BidDetails> {
       'Mini Bar',
       'Car Parking',
       'Pool',
+      'Work Desk'
     ];
 
     return Scaffold(
-      appBar: const CustomAppBar(title: 'Bid Details'),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Center(
-            child: Expanded(
-              child: Column(
-                children: <Widget>[
-                  const BidInfo(
-                    center: true,
-                    gap: 25,
-                  ),
-                  const SizedBox(height: 42),
-                  PreferenceContainer(
-                    heading: 'Primary Preference',
-                    preferences: primaryPreferences,
-                    hotelServices: primaryHotelServices,
-                  ),
-                  const BidInfo(
-                    center: true,
-                    gap: 25,
-                  ),
-                  const SizedBox(height: 42),
-                  PreferenceContainer(
-                    heading: 'Secondary Preference',
-                    preferences: secondaryPreferences,
-                    hotelServices: secondaryHotelServices,
-                  )
-                ],
+      appBar: const CustomAppBar(
+        title: 'Bid Details',
+        logo: false,
+      ),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Center(
+              child: Expanded(
+                child: Column(
+                  children: <Widget>[
+                    const BidInfo(
+                      center: true,
+                      gap: 25,
+                    ),
+                    const SizedBox(height: 42),
+                    PreferenceContainer(
+                      heading: 'Primary Preference',
+                      preferences: primaryPreferences,
+                      hotelServices: primaryHotelServices,
+                    ),
+                    const BidInfo(
+                      center: true,
+                      gap: 25,
+                    ),
+                    const SizedBox(height: 42),
+                    PreferenceContainer(
+                      heading: 'Secondary Preference',
+                      preferences: secondaryPreferences,
+                      hotelServices: secondaryHotelServices,
+                    )
+                  ],
+                ),
               ),
             ),
           ),

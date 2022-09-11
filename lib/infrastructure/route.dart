@@ -13,20 +13,26 @@ class AppRoute {
       case '/splash':
         return PageTransition<dynamic>(
           child: const SplashScreen(),
-          type: PageTransitionType.rightToLeft,
+          type: PageTransitionType.fade,
+          duration: const Duration(milliseconds: 1000),
+          curve: Curves.easeInOut,
           settings: settings,
         );
       case '/on-board':
         return PageTransition<dynamic>(
           child: const OnboardScreen(),
-          type: PageTransitionType.rightToLeft,
+          type: PageTransitionType.fade,
+          duration: const Duration(milliseconds: 1000),
+          curve: Curves.easeInOut,
           settings: settings,
         );
 
       case '/login':
         return PageTransition<dynamic>(
           child: const LoginScreen(),
-          type: PageTransitionType.rightToLeft,
+          type: PageTransitionType.fade,
+          duration: const Duration(milliseconds: 1000),
+          curve: Curves.easeInOut,
           settings: settings,
         );
       case '/otp':
@@ -39,7 +45,7 @@ class AppRoute {
         );
       case '/home':
         return PageTransition<dynamic>(
-          child: const Layout(),
+          child: Layout(),
           type: PageTransitionType.rightToLeft,
           settings: settings,
         );
@@ -71,7 +77,7 @@ class AppRoute {
         );
       default:
         return PageTransition<dynamic>(
-          child: const SplashScreen(),
+          child: const SizedBox(),
           type: PageTransitionType.rightToLeft,
           settings: settings,
         );

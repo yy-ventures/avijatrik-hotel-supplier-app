@@ -1,11 +1,13 @@
-import 'package:avijatrik_hotel_supplier_app/utils/color_utils.dart';
+import 'dart:convert';
+
+import 'package:avijatrik_hotel_supplier_app/shared/constants/app_keys.dart';
+import 'package:avijatrik_hotel_supplier_app/shared/constants/app_local_tables.dart';
+import 'package:avijatrik_hotel_supplier_app/shared/db/index.dart';
+import 'package:avijatrik_hotel_supplier_app/shared/models/index.dart';
 import 'package:avijatrik_hotel_supplier_app/utils/index.dart';
 import 'package:avijatrik_hotel_supplier_app/widgets/button/footer_button.dart';
 import 'package:avijatrik_hotel_supplier_app/widgets/custom/custom_text.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({Key? key}) : super(key: key);
@@ -13,6 +15,10 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SizeUtils().init(context);
+    final user = DbHelper.getData(Tables.userInfo, AppKeys.userInfo);
+
+    // Mapping Data from the table to User Model
+    User userInfo = User.fromJson(jsonDecode(user));
 
     return Container(
       color: primaryWhite,
@@ -39,8 +45,8 @@ class ProfileScreen extends StatelessWidget {
                   radius: avatarRadius,
                   child: CircleAvatar(
                     backgroundColor: Colors.cyan,
-                    // backgroundImage:
-                    //     AssetImage('assets/images/profile-img.png'),
+                    // backgroundImage: NetworkImage(userInfo.profileImage),
+                    // AssetImage('assets/images/profile-img.png'),
                     radius: avatarRadius - 5,
                   ),
                 ),
@@ -64,8 +70,8 @@ class ProfileScreen extends StatelessWidget {
                 const SizedBox(
                   height: 3,
                 ),
-                const CustomText(
-                  title: 'Rifah Nanziba',
+                CustomText(
+                  title: '${userInfo.firstName} ${userInfo.lastName}',
                   textColor: primaryBlack,
                   fontWeight: FontWeight.bold,
                 ),
@@ -112,8 +118,8 @@ class ProfileScreen extends StatelessWidget {
                 const SizedBox(
                   height: 3,
                 ),
-                const CustomText(
-                  title: '1998',
+                CustomText(
+                  title: userInfo.id.toString(),
                   textColor: primaryBlack,
                   fontWeight: FontWeight.bold,
                 ),

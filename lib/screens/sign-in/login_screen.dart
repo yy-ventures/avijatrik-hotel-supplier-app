@@ -4,7 +4,6 @@ import 'package:avijatrik_hotel_supplier_app/screens/sign-in/components/index.da
 import 'package:avijatrik_hotel_supplier_app/shared/services/index.dart';
 import 'package:avijatrik_hotel_supplier_app/utils/index.dart';
 import 'package:avijatrik_hotel_supplier_app/widgets/appbar/appbar.dart';
-import 'package:avijatrik_hotel_supplier_app/widgets/button/custom_text_button.dart';
 // Custom Widgets
 import 'package:avijatrik_hotel_supplier_app/widgets/button/footer_button.dart';
 import 'package:avijatrik_hotel_supplier_app/widgets/custom/bottom_navigation_container.dart';
@@ -85,7 +84,7 @@ class LoginForm extends StatelessWidget {
                   ),
                 ),
                 Positioned(
-                  top: SizeUtils.screenHeight * 0.62,
+                  top: SizeUtils.screenHeight * 0.55,
                   child: Container(
                     width: SizeUtils.screenWidth,
                     child: Column(

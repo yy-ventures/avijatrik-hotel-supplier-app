@@ -1,0 +1,23 @@
+{
+  "Id": 0,
+  "UserId": 0,
+  "AdultPax": 0,
+  "ChildPax": 0,
+  "CheckInDate": "2022-09-11T05:43:33.152Z",
+  "CheckOutDate": "2022-09-11T05:43:33.152Z",
+  "NumberOfRoom": 0,
+  "MinPrice": 0,
+  "MaxPrice": 0,
+  "StartTime": "2022-09-11T05:43:33.152Z",
+  "EndTime": "2022-09-11T05:43:33.152Z",
+  "Type": 1,
+  "IsExpired": true,
+  "IsClosed": true,
+  "PrimaryPreferences": ["string"],
+  "OtherPreferences": ["string"],
+
+  "RoomCategory": {
+    "Name": "string"
+  },
+  "SupplierSubmittedBidCount": 0
+}
