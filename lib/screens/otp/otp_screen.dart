@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 // Screens, Blocs & Utils
-import 'package:avijatrik_hotel_supplier_app/shared/utils/index.dart';
 import 'package:avijatrik_hotel_supplier_app/blocs/otp/index.dart';
+import 'package:avijatrik_hotel_supplier_app/shared/utils/index.dart';
 import 'package:avijatrik_hotel_supplier_app/shared/blocs/index.dart';
 import 'package:avijatrik_hotel_supplier_app/shared/constants/index.dart';
 import 'package:avijatrik_hotel_supplier_app/shared/enum/enums.dart';

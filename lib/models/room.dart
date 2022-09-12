@@ -1,3 +1,6 @@
+import 'package:avijatrik_hotel_supplier_app/models/additional_service.dart';
+import 'package:avijatrik_hotel_supplier_app/models/global/global_item.dart';
+import 'package:avijatrik_hotel_supplier_app/models/global/image.dart';
 import 'package:avijatrik_hotel_supplier_app/shared/models/index.dart';
 
 class Room {
