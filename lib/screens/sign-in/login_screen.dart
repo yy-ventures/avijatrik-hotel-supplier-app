@@ -2,15 +2,15 @@
 import 'package:avijatrik_hotel_supplier_app/blocs/login/index.dart';
 import 'package:avijatrik_hotel_supplier_app/screens/sign-in/components/index.dart';
 import 'package:avijatrik_hotel_supplier_app/shared/services/index.dart';
-import 'package:avijatrik_hotel_supplier_app/utils/index.dart';
-import 'package:avijatrik_hotel_supplier_app/widgets/appbar/appbar.dart';
+import 'package:avijatrik_hotel_supplier_app/shared/utils/index.dart';
+import 'package:avijatrik_hotel_supplier_app/shared/widgets/appbar/appbar.dart';
+import 'package:avijatrik_hotel_supplier_app/shared/widgets/button/footer_button.dart';
+import 'package:avijatrik_hotel_supplier_app/shared/widgets/custom/bottom_navigation_container.dart';
+import 'package:avijatrik_hotel_supplier_app/shared/widgets/custom/custom_text.dart';
+import 'package:avijatrik_hotel_supplier_app/shared/widgets/custom/custom_text_field.dart';
+import 'package:avijatrik_hotel_supplier_app/shared/widgets/error/index.dart';
+import 'package:avijatrik_hotel_supplier_app/shared/widgets/image_with_shader/image_with_shader.dart';
 // Custom Widgets
-import 'package:avijatrik_hotel_supplier_app/widgets/button/footer_button.dart';
-import 'package:avijatrik_hotel_supplier_app/widgets/custom/bottom_navigation_container.dart';
-import 'package:avijatrik_hotel_supplier_app/widgets/custom/custom_text.dart';
-import 'package:avijatrik_hotel_supplier_app/widgets/custom/custom_text_field.dart';
-import 'package:avijatrik_hotel_supplier_app/widgets/error/error_container.dart';
-import 'package:avijatrik_hotel_supplier_app/widgets/image_with_shader/image_with_shader.dart';
 // Third party package
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
@@ -85,7 +85,7 @@ class LoginForm extends StatelessWidget {
                 ),
                 Positioned(
                   top: SizeUtils.screenHeight * 0.55,
-                  child: Container(
+                  child: SizedBox(
                     width: SizeUtils.screenWidth,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,

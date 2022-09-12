@@ -1,13 +1,23 @@
 import 'dart:convert';
-
+import 'package:flutter/material.dart';
+//* Blocs
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:avijatrik_hotel_supplier_app/shared/blocs/auth/auth_bloc.dart';
+import 'package:avijatrik_hotel_supplier_app/shared/blocs/auth/auth_event.dart';
+//* Widgets
+import 'package:avijatrik_hotel_supplier_app/shared/widgets/custom/custom_text.dart';
+import 'package:avijatrik_hotel_supplier_app/shared/widgets/button/footer_button.dart';
+// Utils
+import 'package:avijatrik_hotel_supplier_app/shared/utils/index.dart';
+//* Constants
 import 'package:avijatrik_hotel_supplier_app/shared/constants/app_keys.dart';
 import 'package:avijatrik_hotel_supplier_app/shared/constants/app_local_tables.dart';
+//* DB,Enum,Helpers
 import 'package:avijatrik_hotel_supplier_app/shared/db/index.dart';
+import 'package:avijatrik_hotel_supplier_app/shared/enum/enums.dart';
+import 'package:avijatrik_hotel_supplier_app/shared/helpers/auth_helper.dart';
+//* Models
 import 'package:avijatrik_hotel_supplier_app/shared/models/index.dart';
-import 'package:avijatrik_hotel_supplier_app/utils/index.dart';
-import 'package:avijatrik_hotel_supplier_app/widgets/button/footer_button.dart';
-import 'package:avijatrik_hotel_supplier_app/widgets/custom/custom_text.dart';
-import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({Key? key}) : super(key: key);
@@ -15,6 +25,7 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SizeUtils().init(context);
+
     final user = DbHelper.getData(Tables.userInfo, AppKeys.userInfo);
 
     // Mapping Data from the table to User Model
@@ -38,15 +49,15 @@ class ProfileScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              const Positioned(
+              Positioned(
                 bottom: 0,
                 child: CircleAvatar(
                   backgroundColor: greenLight,
                   radius: avatarRadius,
                   child: CircleAvatar(
-                    backgroundColor: Colors.cyan,
-                    // backgroundImage: NetworkImage(userInfo.profileImage),
-                    // AssetImage('assets/images/profile-img.png'),
+                    backgroundImage: NetworkImage(
+                      userInfo.profileImage ?? '',
+                    ),
                     radius: avatarRadius - 5,
                   ),
                 ),
@@ -132,7 +143,20 @@ class ProfileScreen extends StatelessWidget {
                     text: 'Sign Out',
                     color: lightGrey,
                     textColor: black50,
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pop(context);
+                      BlocProvider.of<AuthBloc>(context).add(
+                        const ChangeAuthStatus(
+                          authenticationStatus:
+                              AuthenticationStatus.unAuthenticated,
+                        ),
+                      );
+                      AuthHelper.logOut();
+                      Navigator.of(context).pushNamedAndRemoveUntil(
+                        '/login',
+                        (Route<dynamic> route) => false,
+                      );
+                    },
                   ),
                 )
               ],

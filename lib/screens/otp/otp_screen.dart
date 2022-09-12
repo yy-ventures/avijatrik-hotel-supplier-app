@@ -1,21 +1,18 @@
-import 'package:avijatrik_hotel_supplier_app/widgets/image_with_shader/image_with_shader.dart';
 import 'package:flutter/material.dart';
 // Screens, Blocs & Utils
+import 'package:avijatrik_hotel_supplier_app/shared/utils/index.dart';
 import 'package:avijatrik_hotel_supplier_app/blocs/otp/index.dart';
-import 'package:avijatrik_hotel_supplier_app/screens/sign-in/components/index.dart';
 import 'package:avijatrik_hotel_supplier_app/shared/blocs/index.dart';
 import 'package:avijatrik_hotel_supplier_app/shared/constants/index.dart';
 import 'package:avijatrik_hotel_supplier_app/shared/enum/enums.dart';
 import 'package:avijatrik_hotel_supplier_app/shared/services/index.dart';
-import 'package:avijatrik_hotel_supplier_app/utils/index.dart';
 // Custom Widgets
-import 'package:avijatrik_hotel_supplier_app/widgets/button/footer_button.dart';
-import 'package:avijatrik_hotel_supplier_app/widgets/custom/bottom_navigation_container.dart';
-import 'package:avijatrik_hotel_supplier_app/widgets/custom/custom_text.dart';
-import 'package:avijatrik_hotel_supplier_app/widgets/error/error_container.dart';
-import 'package:avijatrik_hotel_supplier_app/widgets/otp/custom_otp.dart';
-import 'package:avijatrik_hotel_supplier_app/widgets/otp/index.dart';
-
+import 'package:avijatrik_hotel_supplier_app/shared/widgets/button/footer_button.dart';
+import 'package:avijatrik_hotel_supplier_app/shared/widgets/custom/custom_text.dart';
+import 'package:avijatrik_hotel_supplier_app/shared/widgets/custom/custom_timer.dart';
+import 'package:avijatrik_hotel_supplier_app/shared/widgets/error/index.dart';
+import 'package:avijatrik_hotel_supplier_app/shared/widgets/image_with_shader/image_with_shader.dart';
+import 'package:avijatrik_hotel_supplier_app/shared/widgets/otp/custom_otp.dart';
 // Third party packages
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sms_autofill/sms_autofill.dart';
@@ -119,7 +116,7 @@ class OtpForm extends StatelessWidget with CodeAutoFill {
         },
         child: SingleChildScrollView(
           reverse: true,
-          child: Container(
+          child: SizedBox(
             height: SizeUtils.screenHeight,
             child: ConstrainedBox(
               constraints: BoxConstraints(
@@ -138,7 +135,7 @@ class OtpForm extends StatelessWidget with CodeAutoFill {
                   ),
                   Positioned(
                     top: SizeUtils.screenHeight * 0.52,
-                    child: Container(
+                    child: SizedBox(
                       width: SizeUtils.screenWidth,
                       child: Padding(
                         padding: const EdgeInsets.only(
@@ -200,7 +197,7 @@ class OtpForm extends StatelessWidget with CodeAutoFill {
                                   fontSize: subTitleFontSIze,
                                   textColor: black80,
                                 ),
-                                SizedBox(width: 5),
+                                const SizedBox(width: 5),
                                 CustomText(
                                   title: '+88$phoneNumber',
                                   fontSize: subTitleFontSIze,
@@ -267,7 +264,7 @@ class OtpForm extends StatelessWidget with CodeAutoFill {
                                               fontWeight: FontWeight.bold,
                                               textColor: brand,
                                             )
-                                          : OtpTimer(
+                                          : CustomTimer(
                                               seconds:
                                                   AppConstants.otpTimeInSeconds,
                                               timeOnEnd: () {

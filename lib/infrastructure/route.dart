@@ -1,7 +1,6 @@
-import 'package:avijatrik_hotel_supplier_app/screens/bid-details/bid_details.dart';
+import 'package:avijatrik_hotel_supplier_app/screens/bid-details/bid_details_screen.dart';
 import 'package:avijatrik_hotel_supplier_app/screens/index.dart';
 import 'package:avijatrik_hotel_supplier_app/screens/layout/layout.dart';
-import 'package:avijatrik_hotel_supplier_app/screens/my-bids-screen/my_bids_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 
@@ -18,6 +17,7 @@ class AppRoute {
           curve: Curves.easeInOut,
           settings: settings,
         );
+
       case '/on-board':
         return PageTransition<dynamic>(
           child: const OnboardScreen(),
@@ -35,6 +35,7 @@ class AppRoute {
           curve: Curves.easeInOut,
           settings: settings,
         );
+
       case '/otp':
         final params = settings.arguments! as Map<String, dynamic>;
 
@@ -43,38 +44,25 @@ class AppRoute {
           type: PageTransitionType.rightToLeft,
           settings: settings,
         );
+
       case '/home':
         return PageTransition<dynamic>(
-          child: Layout(),
-          type: PageTransitionType.rightToLeft,
+          child: const Layout(),
+          type: PageTransitionType.fade,
+          duration: const Duration(milliseconds: 1000),
+          curve: Curves.easeInOut,
           settings: settings,
         );
-      // case '/profile':
-      //   return PageTransition<dynamic>(
-      //     child: const Layout(),
-      //     type: PageTransitionType.rightToLeft,
-      //     settings: settings,
-      //   );
-      // case '/bid-alerts':
-      //   return PageTransition<dynamic>(
-      //     child: const Layout(),
-      //     type: PageTransitionType.rightToLeft,
-      //     settings: settings,
-      //   );
-      // case '/help':
-      //   return PageTransition<dynamic>(
-      //     child: const Layout(),
-      //     type: PageTransitionType.rightToLeft,
-      //     settings: settings,
-      //   );
+
       case '/bid-details':
         return PageTransition<dynamic>(
-          child: const BidDetails(),
+          child: const BidDetailsScreen(),
           duration: const Duration(milliseconds: 300),
           curve: Curves.easeInOut,
           type: PageTransitionType.fade,
           settings: settings,
         );
+
       default:
         return PageTransition<dynamic>(
           child: const SizedBox(),

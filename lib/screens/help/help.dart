@@ -1,10 +1,8 @@
-import 'package:avijatrik_hotel_supplier_app/utils/index.dart';
-import 'package:avijatrik_hotel_supplier_app/widgets/custom/custom_text.dart';
-import 'package:avijatrik_hotel_supplier_app/widgets/image_with_shader/image_with_shader.dart';
+import 'package:avijatrik_hotel_supplier_app/shared/utils/index.dart';
+import 'package:avijatrik_hotel_supplier_app/shared/widgets/custom/custom_text.dart';
+import 'package:avijatrik_hotel_supplier_app/shared/widgets/image_with_shader/image_with_shader.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class HelpScreen extends StatelessWidget {
   const HelpScreen({Key? key}) : super(key: key);

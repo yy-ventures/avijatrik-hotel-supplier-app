@@ -1,9 +1,11 @@
 import 'package:avijatrik_hotel_supplier_app/blocs/home_bloc/home_bloc.dart';
-import 'package:avijatrik_hotel_supplier_app/screens/my-bids-screen/my_bids_screen.dart';
-import 'package:avijatrik_hotel_supplier_app/screens/my-rooms-screen/my_rooms_screen.dart';
-import 'package:avijatrik_hotel_supplier_app/utils/index.dart';
-import 'package:avijatrik_hotel_supplier_app/widgets/custom/custom_text.dart';
-import 'package:avijatrik_hotel_supplier_app/widgets/home_navigation/home_navigation.dart';
+import 'package:avijatrik_hotel_supplier_app/screens/home/ui/my-bids-screen/my_bids_screen.dart';
+import 'package:avijatrik_hotel_supplier_app/screens/home/ui/my-rooms-screen/my_rooms_screen.dart';
+import 'package:avijatrik_hotel_supplier_app/shared/utils/index.dart';
+import 'package:avijatrik_hotel_supplier_app/shared/utils/size_utils.dart';
+import 'package:avijatrik_hotel_supplier_app/shared/utils/style_utils.dart';
+import 'package:avijatrik_hotel_supplier_app/shared/widgets/custom/custom_text.dart';
+import 'package:avijatrik_hotel_supplier_app/shared/widgets/home_navigation/home_navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

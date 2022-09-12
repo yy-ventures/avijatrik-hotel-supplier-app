@@ -1,8 +1,12 @@
-import 'package:avijatrik_hotel_supplier_app/utils/index.dart';
-import 'package:avijatrik_hotel_supplier_app/widgets/custom/custom_text.dart';
-import 'package:country_code_picker/country_code_picker.dart';
+// Core
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+// Third Party Packages
+import 'package:country_code_picker/country_code_picker.dart';
+// Widgets
+import 'package:avijatrik_hotel_supplier_app/shared/widgets/custom/custom_text.dart';
+// Utils
+import 'package:avijatrik_hotel_supplier_app/shared/utils/index.dart';
 
 class CountryCodeContainer extends StatelessWidget {
   const CountryCodeContainer({

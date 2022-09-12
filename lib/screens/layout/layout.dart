@@ -5,12 +5,10 @@ import 'package:avijatrik_hotel_supplier_app/screens/bid-alerts/bid_alerts.dart'
 import 'package:avijatrik_hotel_supplier_app/screens/help/help.dart';
 import 'package:avijatrik_hotel_supplier_app/screens/home/home_screen.dart';
 import 'package:avijatrik_hotel_supplier_app/screens/profile/profile.dart';
-import 'package:avijatrik_hotel_supplier_app/utils/index.dart';
-import 'package:avijatrik_hotel_supplier_app/widgets/appbar/appbar.dart';
-import 'package:avijatrik_hotel_supplier_app/widgets/navigation/navigation_bottom.dart';
+import 'package:avijatrik_hotel_supplier_app/shared/widgets/appbar/appbar.dart';
+import 'package:avijatrik_hotel_supplier_app/shared/widgets/navigation/navigation_bottom.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class Layout extends StatefulWidget {
   const Layout({Key? key, this.initialIndex = 0}) : super(key: key);
@@ -27,7 +25,6 @@ class _LayoutState extends State<Layout> {
     const BidAlertScreen(),
     const HelpScreen(),
   ];
-  int _currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {

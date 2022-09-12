@@ -1,11 +1,16 @@
 import 'dart:async';
 
-import 'package:avijatrik_hotel_supplier_app/utils/index.dart';
-import 'package:avijatrik_hotel_supplier_app/widgets/appbar/appbar.dart';
-import 'package:avijatrik_hotel_supplier_app/widgets/custom/logo_with_title.dart';
-import 'package:avijatrik_hotel_supplier_app/widgets/image_with_shader/image_with_shader.dart';
+import 'package:avijatrik_hotel_supplier_app/shared/blocs/auth/auth_bloc.dart';
+import 'package:avijatrik_hotel_supplier_app/shared/blocs/auth/auth_state.dart';
+import 'package:avijatrik_hotel_supplier_app/shared/utils/index.dart';
+import 'package:avijatrik_hotel_supplier_app/shared/utils/size_utils.dart';
+import 'package:avijatrik_hotel_supplier_app/shared/utils/system_ui.dart';
+import 'package:avijatrik_hotel_supplier_app/shared/widgets/appbar/appbar.dart';
+import 'package:avijatrik_hotel_supplier_app/shared/widgets/custom/logo_with_title.dart';
+import 'package:avijatrik_hotel_supplier_app/shared/widgets/image_with_shader/image_with_shader.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class OnboardScreen extends StatelessWidget {
   const OnboardScreen({Key? key}) : super(key: key);
@@ -20,33 +25,46 @@ class OnboardScreen extends StatelessWidget {
     // Initializing the SizeUtils Custom Class
     SizeUtils().init(context);
 
-    //Move to the next screen
-    Timer(Duration(seconds: 1), () {
-      Navigator.popAndPushNamed(context, '/home');
-    });
-
     // UI
-    return Scaffold(
-      extendBodyBehindAppBar: true,
-      backgroundColor: brand,
-      appBar: const CustomAppBar(
-        statusbarTransparent: true,
-        elevation: 0,
-        logo: false,
-      ),
-      body: Column(
-        children: [
-          ClipPath(
-            clipper: CustomClipPath(),
-            child: const ImageWithShader(
-              imagePath: 'assets/images/bg-img.png',
-              heightInPercentage: 65,
-              gradient: linearGradient,
+    return BlocListener<AuthBloc, AuthState>(
+      listener: (context, state) {
+        // If the user is already authenticated go to home page
+        if (state is Authenticated) {
+          Future.delayed(const Duration(seconds: 2), () {
+            Navigator.pushNamedAndRemoveUntil(
+                context, '/home', (Route<dynamic> route) => false);
+          });
+        }
+        // Else Go to login Page
+        else {
+          Future.delayed(const Duration(seconds: 2), () {
+            Navigator.pushNamedAndRemoveUntil(
+                context, '/login', (Route<dynamic> route) => false);
+          });
+        }
+      },
+      child: Scaffold(
+        extendBodyBehindAppBar: true,
+        backgroundColor: brand,
+        appBar: const CustomAppBar(
+          statusbarTransparent: true,
+          elevation: 0,
+          logo: false,
+        ),
+        body: Column(
+          children: [
+            ClipPath(
+              clipper: CustomClipPath(),
+              child: const ImageWithShader(
+                imagePath: 'assets/images/bg-img.png',
+                heightInPercentage: 65,
+                gradient: linearGradient,
+              ),
             ),
-          ),
-          const SizedBox(height: 15),
-          const LogoWithTitle()
-        ],
+            const SizedBox(height: 15),
+            const LogoWithTitle()
+          ],
+        ),
       ),
     );
   }
