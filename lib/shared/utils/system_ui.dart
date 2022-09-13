@@ -7,6 +7,6 @@ SystemUiOverlayStyle transparentNavigation() {
     systemNavigationBarContrastEnforced: true,
     systemNavigationBarColor: brand,
     systemNavigationBarDividerColor: brandShadow,
-    systemNavigationBarIconBrightness: Brightness.dark,
+    systemNavigationBarIconBrightness: Brightness.light,
   );
 }

@@ -10,6 +10,14 @@ class InternetConnectionChecking extends InternetState {
   List<Object> get props => [];
 }
 
+class InternetInitialState extends InternetState {
+  InternetInitialState({required this.connected});
+
+  final bool connected;
+  @override
+  List<Object> get props => [connected];
+}
+
 class InternetConnected extends InternetState {
   InternetConnected({required this.connectionType});
 

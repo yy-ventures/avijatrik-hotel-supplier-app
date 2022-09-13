@@ -101,7 +101,10 @@ class _BidDetailsScreenState extends State<BidDetailsScreen> {
                           preferences: secondaryPreferences,
                           hotelServices: secondaryHotelServices,
                         ),
-                        const BidDetailsSubmitForm(),
+                        const Padding(
+                          padding: EdgeInsets.all(12.0),
+                          child: BidDetailsSubmitForm(),
+                        ),
                       ],
                     ),
                   ),
@@ -129,7 +132,7 @@ class CustomClipPath extends CustomClipper<Path> {
     path.lineTo(w, 0);
     path.quadraticBezierTo(
       w / 2,
-      h * 0.25,
+      h * 0.125,
       0,
       0,
     );

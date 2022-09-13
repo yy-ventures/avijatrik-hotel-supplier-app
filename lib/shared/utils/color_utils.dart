@@ -75,6 +75,9 @@ const Color shadowHeavy = Color.fromRGBO(0, 0, 0, 0.14);
 const Color shadowLight = Color.fromRGBO(0, 0, 0, 0.05);
 const Color shadowAppBar = Color.fromRGBO(0, 0, 0, 0.35);
 
+// Backdrop
+Color backDrop = const Color(0xFF000000).withOpacity(0.5);
+
 // Gradient from both top to bottom and bottom to top on background image for sign-in page and otp page
 const mirrorGradient = LinearGradient(
   colors: [

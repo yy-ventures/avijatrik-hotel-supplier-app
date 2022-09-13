@@ -1,6 +1,6 @@
 {
     "@@locale": "en",
     "appName": "Avijatrik",
-    "appbarTitle": "Ocean Paradise Hotel & Resort",
-    "homeHeading": "Home Heading"
+    "homeAppbarTitle": "Ocean Paradise Hotel & Resort",
+    "bidDetailsAppbarTitle": "Bid Details"
 }

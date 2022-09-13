@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 import 'package:bloc/bloc.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:avijatrik_hotel_supplier_app/shared/enum/enums.dart';
@@ -12,7 +13,19 @@ class InternetCubit extends Cubit<InternetState> {
       : super(
           InternetConnectionChecking(),
         ) {
+    _checkStatus();
     getInternetStatus();
+  }
+
+  void _checkStatus() async {
+    ConnectivityResult result = await Connectivity().checkConnectivity();
+    if (result == ConnectivityResult.wifi) {
+      emitInternetConnected(ConnectionType.wifi);
+    } else if (result == ConnectivityResult.mobile) {
+      emitInternetConnected(ConnectionType.mobile);
+    } else if (result == ConnectivityResult.none) {
+      emitInternetDisconnected();
+    }
   }
 
   void getInternetStatus() {
@@ -30,6 +43,9 @@ class InternetCubit extends Cubit<InternetState> {
 
   final Connectivity connectivity;
   late StreamSubscription connectivityStreamSubscription;
+  // late StreamController _connectivityController;
+
+  // void emitInternetInitialState(ConnectionType _connectionType) => emit(state);
 
   void emitInternetConnected(ConnectionType _connectionType) =>
       emit(InternetConnected(connectionType: _connectionType));
