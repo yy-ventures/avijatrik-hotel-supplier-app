@@ -35,7 +35,7 @@ class _LayoutState extends State<Layout> {
           return Scaffold(
             backgroundColor: Colors.white,
             appBar: CustomAppBar(
-              title: AppLocalizations.of(context)!.homeAppbarTitle,
+              title: AppLocalizations.of(context)!.appName,
             ),
             body: PageTransitionSwitcher(
               transitionBuilder:

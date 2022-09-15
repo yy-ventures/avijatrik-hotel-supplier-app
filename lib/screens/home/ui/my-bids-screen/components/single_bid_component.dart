@@ -1,5 +1,4 @@
 import 'package:avijatrik_hotel_supplier_app/shared/utils/index.dart';
-import 'package:avijatrik_hotel_supplier_app/shared/utils/size_utils.dart';
 import 'package:avijatrik_hotel_supplier_app/shared/widgets/bid_info/bid_info_widget.dart';
 import 'package:avijatrik_hotel_supplier_app/shared/widgets/button/footer_button.dart';
 import 'package:avijatrik_hotel_supplier_app/shared/widgets/custom/custom_text.dart';
@@ -125,7 +124,7 @@ class SingleBidComponent extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                 child: CustomTimer(
                   seconds: 900,
-                  fontSize: 16,
+                  fontSize: bidCardTimerFontSize,
                   fontWeight: FontWeight.bold,
                   textColor: black50,
                 ),

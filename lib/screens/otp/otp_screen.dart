@@ -80,6 +80,7 @@ class OtpForm extends StatelessWidget with CodeAutoFill {
     _otpBloc = BlocProvider.of<OtpBloc>(context);
     _timerBloc = BlocProvider.of<TimerBloc>(context);
     listenOtp();
+    String countryCodeExt = phoneNumber.length == 10 ? '880' : '88';
 
     return Scaffold(
       backgroundColor: primaryWhite,
@@ -199,7 +200,7 @@ class OtpForm extends StatelessWidget with CodeAutoFill {
                                 ),
                                 const SizedBox(width: 5),
                                 CustomText(
-                                  title: '+88$phoneNumber',
+                                  title: '+$countryCodeExt$phoneNumber',
                                   fontSize: subTitleFontSIze,
                                   textColor: brand,
                                 ),

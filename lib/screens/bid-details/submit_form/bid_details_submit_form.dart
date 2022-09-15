@@ -1,3 +1,4 @@
+import 'package:avijatrik_hotel_supplier_app/models/room.dart';
 import 'package:avijatrik_hotel_supplier_app/shared/utils/color_utils.dart';
 import 'package:avijatrik_hotel_supplier_app/shared/utils/index.dart';
 import 'package:avijatrik_hotel_supplier_app/shared/widgets/button/footer_button.dart';
@@ -9,10 +10,19 @@ class BidDetailsSubmitForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SizeUtils().init(context);
+
     const double widgetHorizontalPadding = 30;
 
+    List<Room> rooms = [
+      Room(id: 1, name: 'Deluxe Room'),
+      Room(id: 2, name: 'Deluxe Couple'),
+      Room(id: 3, name: 'Single Room'),
+    ];
+    Room selectedRoom = rooms[0];
+
     return Container(
-      constraints: const BoxConstraints(minHeight: 450),
+      constraints: BoxConstraints(minHeight: SizeUtils.screenHeight * 0.6),
       child: Center(
         child: Column(
           children: <Widget>[
@@ -36,26 +46,55 @@ class BidDetailsSubmitForm extends StatelessWidget {
                 vertical: 0,
               ),
               child: DropdownButtonHideUnderline(
-                child: DropdownButton<String>(
+                child: DropdownButton<Room>(
+                  value: selectedRoom,
                   alignment: AlignmentDirectional.center,
                   isExpanded: true,
-                  borderRadius: BorderRadius.circular(20),
-                  items: const [
-                    DropdownMenuItem<String>(
-                      child: Center(
-                        child: CustomText(
-                          title: 'Select Options',
-                          textColor: black50,
-                          fontSize: 16,
-                        ),
-                      ),
-                    ),
-                  ],
                   icon: const Icon(Icons.expand_more_outlined),
                   iconSize: 28,
                   iconEnabledColor: brand,
+                  items: rooms
+                      .map(
+                        (item) => DropdownMenuItem<Room>(
+                          value: item,
+                          child: Center(
+                            child: CustomText(
+                              title: item.name ?? 'Select Options',
+                              textColor: black50,
+                              fontSize: 16,
+                            ),
+                          ),
+                        ),
+                      )
+                      .toList(),
                   onChanged: (value) {},
                 ),
+              ),
+            ),
+            const SizedBox(height: 10),
+            TextField(
+              textAlign: TextAlign.center,
+              textAlignVertical: TextAlignVertical.center,
+              keyboardType: TextInputType.number,
+              cursorColor: brand,
+              decoration: InputDecoration(
+                contentPadding: const EdgeInsets.all(0),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: const BorderSide(
+                    color: brand,
+                  ),
+                  borderRadius: BorderRadius.circular(50),
+                ),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(50),
+                ),
+                label: const Center(
+                  child: CustomText(
+                    title: 'Number of rooms',
+                    textColor: black50,
+                  ),
+                ),
+                alignLabelWithHint: true,
               ),
             ),
             const SizedBox(height: 10),
@@ -64,6 +103,7 @@ class BidDetailsSubmitForm extends StatelessWidget {
                 Expanded(
                   child: TextField(
                     decoration: InputDecoration(
+                      contentPadding: const EdgeInsets.all(0),
                       enabledBorder: OutlineInputBorder(
                         borderSide: const BorderSide(
                           color: brand,
@@ -91,6 +131,7 @@ class BidDetailsSubmitForm extends StatelessWidget {
                 Expanded(
                   child: TextField(
                     decoration: InputDecoration(
+                      contentPadding: const EdgeInsets.all(0),
                       enabledBorder: OutlineInputBorder(
                         borderSide: const BorderSide(
                           color: brand,
@@ -131,7 +172,7 @@ class BidDetailsSubmitForm extends StatelessWidget {
               textAlign: TextAlign.center,
 
               // obscureText: true,
-              keyboardType: TextInputType.number,
+              keyboardType: TextInputType.text,
               cursorColor: brand,
             ),
             const SizedBox(height: 42),
@@ -143,7 +184,7 @@ class BidDetailsSubmitForm extends StatelessWidget {
                   onPressed: () {},
                   height: 39,
                 ),
-                const SizedBox(width: 11),
+                const SizedBox(width: 10),
                 FooterButton(
                   text: 'Cancel Bid',
                   onPressed: () {},

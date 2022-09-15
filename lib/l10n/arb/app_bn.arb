@@ -1,6 +1,55 @@
- {
-     "@@locale": "bn",
-     "appName": "Avijatrik",
-     "appbarTitle": "ব্যাক করুন",
-     "homeHeading": "ব্যাক করুন"
- }
+{
+  "@@locale": "bn",
+  "appName": "Avijatrik",
+
+  "bottom_navigation_label_home": "Home",
+  "bottom_navigation_label_profile": "Profile",
+  "bottom_navigation_label_bid_alerts": "Bid Alerts",
+  "bottom_navigation_label_help": "Help",
+
+  "buttons_submit": "Submit",
+  "buttons_cancel": "Cancel",
+  "buttons_signIn": "Sign In",
+  "buttons_signOut": "Sign Out",
+  "buttons_verify": "Verify",
+
+  "sign_in_screen_heading": "Sign In",
+  "sign_in_screen_formLabel": "Enter your phone number",
+  "sign_in_screen_labelInfo": "We will send you a code on this number",
+  "sign_in_screen_placeHolder": "Phone no.",
+
+  "otp_screen_heading": "OTP Verification",
+  "otp_screen_directive": "OTP Verification",
+  "otp_screen_did_not_receive": "OTP Verification",
+  "otp_screen_resend_text": "OTP Verification",
+
+  "home_screen_my_bids_nav_title": "My Bids",
+  "home_screen_my_rooms_nav_title": "My Rooms",
+  "home_screen_my_rooms_menu_title": "Available Rooms",
+  "home_screen_link_details_text": "Bid details >",
+
+  "bid_details_screen_title": "Bid Details",
+  "bid_details_screen_preference_primary": "Primary Preference",
+  "bid_details_screen_preference_secondary": "Secondary Preference",
+  "bid_details_screen_match_with_your_hotel": "Match with your Hotel",
+  "bid_details_screen_form_title": "Your Bid",
+  "bid_details_screen_placeholder_dropdown_menu": "Select Room",
+  "bid_details_screen_placeholder_regular_price": "Regular Price",
+  "bid_details_screen_placeholder_offer_price": "Offer Price",
+  "bid_details_screen_placeholder_note": "Note",
+
+  "bid_alerts_screen_title": "Bid Alerts",
+  "bid_alerts_screen_heading": "This Week",
+  "bid_alerts_screen_label_time_remaining": "Time remaining",
+  "bid_alerts_screen_link_details_text": "Bid details >",
+
+  "profile_screen_title": "My Profile",
+  "profile_screen_label_id": "Id",
+  "profile_screen_label_name": "Name",
+  "profile_screen_label_hotel": "Hotel",
+
+  "help_screen_title": "Help & Support",
+  "help_screen_more_info_text": "For any information and queries, please contact",
+  "help_screen_contact_no": "+880 1788 556 555",
+  "help_screen_visit_website_text": "Visit our website"
+}

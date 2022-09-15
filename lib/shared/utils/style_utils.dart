@@ -19,24 +19,24 @@ const double appBarHeight = 120;
 const double bottomNavHeight = 100;
 const double iconSplashRadius = 30;
 
-const double headerTextFontSIze = 20;
-const double titleFontSIze = 36;
-const double labelTextFontSIze = 16;
-const double subTitleFontSIze = 15;
+const double headerTextFontSIze = 20 + 2;
+const double titleFontSIze = 36 + 2;
+const double labelTextFontSIze = 16 + 2;
+const double subTitleFontSIze = 15 + 2;
 
 const double avatarRadius = 90;
 
 // Bid Card Sizes
 const double bidCardHeight = 300;
-const double bidCardHeadingTextSize = 16;
-const double bidCardDetailsFontSize = 12;
+const double bidCardHeadingTextSize = 16 + 2;
+const double bidCardDetailsFontSize = 12 + 2;
 const double bidCardTimerFontSize = 20;
 
 // Room Card Sizes
-const double roomCardHeadingFontSize = 16;
-const double roomCardDetailFontSize = 14;
+const double roomCardHeadingFontSize = 16 + 2;
+const double roomCardDetailFontSize = 14 + 2;
 const double roomCardCountFontSize = 36;
 
 // BottomNavigationSizes
-const double bottomNavigationLabelFontSize = 14;
+const double bottomNavigationLabelFontSize = 14 + 2;
 const double bottomNavigationIconPadding = 7;

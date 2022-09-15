@@ -33,136 +33,140 @@ class ProfileScreen extends StatelessWidget {
 
     return Container(
       color: primaryWhite,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Stack(
-            alignment: Alignment.center,
+      child: SingleChildScrollView(
+        child: Expanded(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              ClipPath(
-                clipper: CustomClipPath(),
-                child: IntrinsicHeight(
-                  child: Container(
-                    height: SizeUtils.screenHeight * 0.27,
-                    color: brand,
-                  ),
-                ),
-              ),
-              Positioned(
-                bottom: 0,
-                child: CircleAvatar(
-                  backgroundColor: greenLight,
-                  radius: avatarRadius,
-                  child: CircleAvatar(
-                    backgroundImage: NetworkImage(
-                      userInfo.profileImage ?? '',
+              Stack(
+                alignment: Alignment.center,
+                children: [
+                  ClipPath(
+                    clipper: CustomClipPath(),
+                    child: IntrinsicHeight(
+                      child: Container(
+                        height: SizeUtils.screenHeight * 0.27,
+                        color: brand,
+                      ),
                     ),
-                    radius: avatarRadius - 5,
                   ),
-                ),
+                  Positioned(
+                    bottom: 0,
+                    child: CircleAvatar(
+                      backgroundColor: greenLight,
+                      radius: avatarRadius,
+                      child: CircleAvatar(
+                        backgroundImage: NetworkImage(
+                          userInfo.profileImage ?? '',
+                        ),
+                        radius: avatarRadius - 5,
+                      ),
+                    ),
+                  ),
+                ],
               ),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: screenLeftPadding + 30,
+                  vertical: screenTopPadding + 15,
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const CustomText(
+                      title: 'Name',
+                      textColor: primaryBlack,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 14,
+                    ),
+                    const SizedBox(
+                      height: 3,
+                    ),
+                    CustomText(
+                      title: '${userInfo.firstName} ${userInfo.lastName}',
+                      textColor: primaryBlack,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    Container(
+                      height: 1,
+                      color: brand,
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    const CustomText(
+                      title: 'Hotel',
+                      textColor: primaryBlack,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 14,
+                    ),
+                    const SizedBox(
+                      height: 3,
+                    ),
+                    const CustomText(
+                      title: "Dolphin's Den",
+                      textColor: primaryBlack,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    Container(
+                      height: 1,
+                      color: brand,
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    const CustomText(
+                      title: 'User ID',
+                      textColor: primaryBlack,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 14,
+                    ),
+                    const SizedBox(
+                      height: 3,
+                    ),
+                    CustomText(
+                      title: userInfo.id.toString(),
+                      textColor: primaryBlack,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    const SizedBox(
+                      height: 34,
+                    ),
+                    Center(
+                      child: FooterButton(
+                        height: 40,
+                        text: 'Sign Out',
+                        color: lightGrey,
+                        textColor: black50,
+                        onPressed: () {
+                          Navigator.pop(context);
+                          BlocProvider.of<AuthBloc>(context).add(
+                            const ChangeAuthStatus(
+                              authenticationStatus:
+                                  AuthenticationStatus.unAuthenticated,
+                            ),
+                          );
+                          AuthHelper.logOut();
+                          Navigator.of(context).pushNamedAndRemoveUntil(
+                            '/login',
+                            (Route<dynamic> route) => false,
+                          );
+                        },
+                      ),
+                    )
+                  ],
+                ),
+              )
             ],
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: screenLeftPadding + 30,
-              vertical: screenTopPadding + 15,
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const CustomText(
-                  title: 'Name',
-                  textColor: primaryBlack,
-                  fontWeight: FontWeight.w500,
-                  fontSize: 14,
-                ),
-                const SizedBox(
-                  height: 3,
-                ),
-                CustomText(
-                  title: '${userInfo.firstName} ${userInfo.lastName}',
-                  textColor: primaryBlack,
-                  fontWeight: FontWeight.bold,
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
-                Container(
-                  height: 1,
-                  color: brand,
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
-                const CustomText(
-                  title: 'Hotel',
-                  textColor: primaryBlack,
-                  fontWeight: FontWeight.w500,
-                  fontSize: 14,
-                ),
-                const SizedBox(
-                  height: 3,
-                ),
-                const CustomText(
-                  title: "Dolphin's Den",
-                  textColor: primaryBlack,
-                  fontWeight: FontWeight.bold,
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
-                Container(
-                  height: 1,
-                  color: brand,
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
-                const CustomText(
-                  title: 'User ID',
-                  textColor: primaryBlack,
-                  fontWeight: FontWeight.w500,
-                  fontSize: 14,
-                ),
-                const SizedBox(
-                  height: 3,
-                ),
-                CustomText(
-                  title: userInfo.id.toString(),
-                  textColor: primaryBlack,
-                  fontWeight: FontWeight.bold,
-                ),
-                const SizedBox(
-                  height: 34,
-                ),
-                Center(
-                  child: FooterButton(
-                    height: 40,
-                    text: 'Sign Out',
-                    color: lightGrey,
-                    textColor: black50,
-                    onPressed: () {
-                      Navigator.pop(context);
-                      BlocProvider.of<AuthBloc>(context).add(
-                        const ChangeAuthStatus(
-                          authenticationStatus:
-                              AuthenticationStatus.unAuthenticated,
-                        ),
-                      );
-                      AuthHelper.logOut();
-                      Navigator.of(context).pushNamedAndRemoveUntil(
-                        '/login',
-                        (Route<dynamic> route) => false,
-                      );
-                    },
-                  ),
-                )
-              ],
-            ),
-          )
-        ],
+        ),
       ),
     );
   }

@@ -15,6 +15,8 @@ class BidDetailsScreen extends StatefulWidget {
 class _BidDetailsScreenState extends State<BidDetailsScreen> {
   @override
   Widget build(BuildContext context) {
+    SizeUtils().init(context);
+
     const double gap = 25;
     final List<String> primaryPreferences = [
       'AC',
@@ -70,7 +72,7 @@ class _BidDetailsScreenState extends State<BidDetailsScreen> {
                   clipper: CustomClipPath(),
                   child: Container(
                     width: SizeUtils.screenWidth,
-                    height: 450,
+                    height: SizeUtils.screenHeight * 0.65,
                     color: lightGrey,
                   ),
                 ),
