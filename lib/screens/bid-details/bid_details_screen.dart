@@ -72,7 +72,7 @@ class _BidDetailsScreenState extends State<BidDetailsScreen> {
                   clipper: CustomClipPath(),
                   child: Container(
                     width: SizeUtils.screenWidth,
-                    height: SizeUtils.screenHeight * 0.65,
+                    height: SizeUtils.screenHeight * 0.7,
                     color: lightGrey,
                   ),
                 ),
@@ -103,8 +103,8 @@ class _BidDetailsScreenState extends State<BidDetailsScreen> {
                           preferences: secondaryPreferences,
                           hotelServices: secondaryHotelServices,
                         ),
-                        const Padding(
-                          padding: EdgeInsets.all(12.0),
+                        Padding(
+                          padding: const EdgeInsets.all(12.0),
                           child: BidDetailsSubmitForm(),
                         ),
                       ],

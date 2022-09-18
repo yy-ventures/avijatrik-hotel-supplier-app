@@ -8,10 +8,12 @@ abstract class BidSubmitEvent extends Equatable {
 }
 
 class SubmitSupplierBid extends BidSubmitEvent {
-  const SubmitSupplierBid();
+  const SubmitSupplierBid({required this.supplierBid});
+
+  final SupplierBidSubmitPayload supplierBid;
 
   @override
-  List<Object?> get props => [];
+  List<Object?> get props => [supplierBid];
 }
 
 class CheckSupplierBidInfoFormIsValid extends BidSubmitEvent {

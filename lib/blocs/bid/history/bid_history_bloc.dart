@@ -66,9 +66,11 @@ class BidHistoryBloc extends Bloc<BidHistoryEvent, BidHistoryState> {
       totalCount = payload['Meta']['TotalCount'];
       histories += list.map((item) => BidInfo.fromJson(item)).toList();
 
-      emit(BidHistoryLoaded(
-        histories: histories,
-      ));
+      emit(
+        BidHistoryLoaded(
+          histories: histories,
+        ),
+      );
     } else {
       emit(
         BidHistoryError(

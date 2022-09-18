@@ -1,9 +1,9 @@
 import 'dart:convert';
 
+import 'package:avijatrik_hotel_supplier_app/payloads/supplier_bid_payload.dart';
 import 'package:avijatrik_hotel_supplier_app/shared/configs/index.dart';
 import 'package:avijatrik_hotel_supplier_app/shared/helpers/index.dart';
 import 'package:avijatrik_hotel_supplier_app/shared/models/index.dart';
-import 'package:avijatrik_hotel_supplier_app/shared/payloads/index.dart';
 import 'package:avijatrik_hotel_supplier_app/shared/services/index.dart';
 import 'package:intl/intl.dart';
 
@@ -14,7 +14,7 @@ class BidService {
     bool isExpired = true,
     bool isApproved = true,
   }) async {
-    final url = '${APIEndpoints.AVIJATRIK_BASE_URL}/bid/list';
+    final url = '${APIEndpoints.AVIJATRIK_BASE_URL}/hotelsupplier/bid/list';
     final queryParameters = {
       'pageSize': pageSize,
       'currentPage': currentPage,
@@ -29,7 +29,8 @@ class BidService {
   }
 
   Future<HttpResponse> getBidDetails(int id) async {
-    final url = '${APIEndpoints.AVIJATRIK_BASE_URL}/bid/details/{id}';
+    final url =
+        '${APIEndpoints.AVIJATRIK_BASE_URL}/hotelsupplier/bid/details/{id}';
     final pathKey = {
       'id': id,
     };
@@ -58,6 +59,25 @@ class BidService {
     final url = '${APIEndpoints.AVIJATRIK_BASE_URL}/bid/check-bid-running';
 
     final response = await HttpService.get(url);
+
+    return response;
+  }
+
+  Future<HttpResponse> submitSupplierBid(
+    SupplierBidSubmitPayload supplierBid,
+  ) async {
+    final url = '${APIEndpoints.AVIJATRIK_BASE_URL}/hotelsupplier/submit-bid';
+
+    final payload = {
+      "BidId": supplierBid.bidId,
+      "DiscountedPrice": supplierBid.discountedPrice,
+      "RoomId": supplierBid.roomId,
+      "NumberOfRoom": supplierBid.numberOfRooms,
+      "Description": supplierBid.description,
+      "Note": supplierBid.note
+    };
+
+    final response = await HttpService.post(url, body: payload);
 
     return response;
   }

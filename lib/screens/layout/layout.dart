@@ -5,6 +5,8 @@ import 'package:avijatrik_hotel_supplier_app/screens/bid-alerts/bid_alerts.dart'
 import 'package:avijatrik_hotel_supplier_app/screens/help/help.dart';
 import 'package:avijatrik_hotel_supplier_app/screens/home/home_screen.dart';
 import 'package:avijatrik_hotel_supplier_app/screens/profile/profile.dart';
+import 'package:avijatrik_hotel_supplier_app/shared/blocs/auth/auth_bloc.dart';
+import 'package:avijatrik_hotel_supplier_app/shared/blocs/auth/auth_state.dart';
 import 'package:avijatrik_hotel_supplier_app/shared/widgets/appbar/appbar.dart';
 import 'package:avijatrik_hotel_supplier_app/shared/widgets/navigation/navigation_bottom.dart';
 import 'package:flutter/material.dart';
@@ -28,31 +30,42 @@ class _LayoutState extends State<Layout> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => BottomNavigationBloc(),
-      child: BlocBuilder<BottomNavigationBloc, BottomNavigationState>(
-        builder: (context, state) {
-          return Scaffold(
-            backgroundColor: Colors.white,
-            appBar: CustomAppBar(
-              title: AppLocalizations.of(context)!.appName,
-            ),
-            body: PageTransitionSwitcher(
-              transitionBuilder:
-                  ((child, primaryAnimation, secondaryAnimation) =>
-                      FadeThroughTransition(
-                        animation: primaryAnimation,
-                        secondaryAnimation: secondaryAnimation,
-                        child: child,
-                      )),
-              child: IndexedStack(
-                index: state.screenIndex,
-                children: screens,
+    return BlocListener<AuthBloc, AuthState>(
+      listener: (context, state) {
+        if (state is UnAuthenticated) {
+          // Navigator.pushNamedAndRemoveUntil(
+          //   context,
+          //   '/login',
+          //   (Route<dynamic> route) => false,
+          // );
+        }
+      },
+      child: BlocProvider(
+        create: (context) => BottomNavigationBloc(),
+        child: BlocBuilder<BottomNavigationBloc, BottomNavigationState>(
+          builder: (context, state) {
+            return Scaffold(
+              backgroundColor: Colors.white,
+              appBar: CustomAppBar(
+                title: AppLocalizations.of(context)!.appName,
               ),
-            ),
-            bottomNavigationBar: NavigationBottom(),
-          );
-        },
+              body: PageTransitionSwitcher(
+                transitionBuilder:
+                    ((child, primaryAnimation, secondaryAnimation) =>
+                        FadeThroughTransition(
+                          animation: primaryAnimation,
+                          secondaryAnimation: secondaryAnimation,
+                          child: child,
+                        )),
+                child: IndexedStack(
+                  index: state.screenIndex,
+                  children: screens,
+                ),
+              ),
+              bottomNavigationBar: NavigationBottom(),
+            );
+          },
+        ),
       ),
     );
   }

@@ -1,6 +1,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.avijatrik_hotel_supplier_app">
-   <application
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
         android:label="avijatrik_hotel_supplier_app"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
@@ -31,4 +37,7 @@
             android:name="flutterEmbedding"
             android:value="2" />
     </application>
+    
+
+
 </manifest>

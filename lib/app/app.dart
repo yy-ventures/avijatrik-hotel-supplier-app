@@ -37,7 +37,7 @@ class App extends StatelessWidget {
           BlocListener<InternetCubit, InternetState>(
             listener: (_, state) {
               if (state is InternetDisconnected) {
-                print('Interne tDisconnected...................');
+                print('Internet Disconnected...................');
               }
             },
           ),
@@ -59,7 +59,7 @@ class App extends StatelessWidget {
               locale: state.locale,
               supportedLocales: AppLocalizations.supportedLocales,
               onGenerateRoute: AppRoute.onGenerateRoute,
-              initialRoute: '/home',
+              initialRoute: '/splash',
             );
           },
         ),

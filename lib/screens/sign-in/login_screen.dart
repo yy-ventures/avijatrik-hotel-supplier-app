@@ -191,6 +191,7 @@ class LoginForm extends StatelessWidget {
                                                         is LoginPhoneNumberInvalid
                                                 ? null
                                                 : () {
+                                                    print(phoneNumberCtrl.text);
                                                     FocusScope.of(context)
                                                         .unfocus();
                                                     _loginBloc.add(
