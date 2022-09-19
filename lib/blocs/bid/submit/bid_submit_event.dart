@@ -22,3 +22,16 @@ class CheckSupplierBidInfoFormIsValid extends BidSubmitEvent {
   @override
   List<Object?> get props => [];
 }
+
+class CheckOfferPriceIsValid extends BidSubmitEvent {
+  const CheckOfferPriceIsValid({
+    required this.regularPrice,
+    required this.offerPrice,
+  });
+
+  final String regularPrice;
+  final String offerPrice;
+
+  @override
+  List<Object?> get props => [regularPrice, offerPrice];
+}

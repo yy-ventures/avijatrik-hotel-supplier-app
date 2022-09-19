@@ -10,12 +10,14 @@ class ErrorText extends StatelessWidget {
     this.showAsterisk = false,
     this.paddingTop = 8,
     this.showErrorIcon = false,
+    this.centered = false,
   }) : super(key: key);
 
   final String text;
   final bool showAsterisk;
   final bool showErrorIcon;
   final double paddingTop;
+  final bool centered;
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +25,8 @@ class ErrorText extends StatelessWidget {
         ? Padding(
             padding: EdgeInsets.only(top: paddingTop),
             child: Row(
+              mainAxisAlignment:
+                  centered ? MainAxisAlignment.center : MainAxisAlignment.start,
               children: [
                 if (showErrorIcon)
                   Padding(

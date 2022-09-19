@@ -56,7 +56,7 @@ class AppRoute {
 
       case '/bid-details':
         return PageTransition<dynamic>(
-          child: const BidDetailsScreen(),
+          child: BidDetailsScreen(),
           duration: const Duration(milliseconds: 300),
           curve: Curves.easeInOut,
           type: PageTransitionType.fade,

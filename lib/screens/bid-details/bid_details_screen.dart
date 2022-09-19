@@ -1,21 +1,41 @@
+import 'package:avijatrik_hotel_supplier_app/blocs/bid/submit/bid_submit_bloc.dart';
+import 'package:avijatrik_hotel_supplier_app/models/room.dart';
 import 'package:avijatrik_hotel_supplier_app/screens/bid-details/submit_form/bid_details_submit_form.dart';
+import 'package:avijatrik_hotel_supplier_app/shared/services/bid_service.dart';
 import 'package:avijatrik_hotel_supplier_app/shared/utils/index.dart';
 import 'package:avijatrik_hotel_supplier_app/shared/widgets/appbar/appbar.dart';
 import 'package:avijatrik_hotel_supplier_app/shared/widgets/bid_info/bid_info_widget.dart';
 import 'package:avijatrik_hotel_supplier_app/shared/widgets/preference_container/preference_container.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class BidDetailsScreen extends StatefulWidget {
-  const BidDetailsScreen({Key? key}) : super(key: key);
+class BidDetailsScreen extends StatelessWidget {
+  BidDetailsScreen({Key? key}) : super(key: key);
 
-  @override
-  State<BidDetailsScreen> createState() => _BidDetailsScreenState();
-}
+  final regularPriceCtrl = TextEditingController();
+  final offerPriceCtrl = TextEditingController();
+  final numberOfRoomsCtrl = TextEditingController();
+  final descriptionCtrl = TextEditingController();
+  final noteCtrl = TextEditingController();
 
-class _BidDetailsScreenState extends State<BidDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     SizeUtils().init(context);
+
+    const double widgetHorizontalPadding = 30;
+
+    // Dummy Data
+    List<Room> rooms = [
+      Room(id: 1, name: 'Deluxe Room'),
+      Room(id: 2, name: 'Deluxe Couple'),
+      Room(id: 3, name: 'Single Room'),
+    ];
+
+    List<String> roomNames =
+        rooms.map((item) => item.name ?? 'Select Options').toList();
+
+    String selectedRoom = roomNames[0];
+    // Dummy Data
 
     const double gap = 25;
     final List<String> primaryPreferences = [
@@ -57,62 +77,71 @@ class _BidDetailsScreenState extends State<BidDetailsScreen> {
       'Work Desk'
     ];
 
-    return Scaffold(
-      appBar: const CustomAppBar(
-        title: 'Bid Details',
-        logo: false,
-      ),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Stack(
-            children: [
-              Positioned(
-                bottom: 0,
-                child: ClipPath(
-                  clipper: CustomClipPath(),
-                  child: Container(
-                    width: SizeUtils.screenWidth,
-                    height: SizeUtils.screenHeight * 0.7,
-                    color: lightGrey,
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Center(
-                  child: Expanded(
-                    child: Column(
-                      children: <Widget>[
-                        const BidInfoWidget(
-                          center: true,
-                          gap: 25,
-                        ),
-                        const SizedBox(height: 42),
-                        PreferenceContainer(
-                          heading: 'Primary Preference',
-                          preferences: primaryPreferences,
-                          hotelServices: primaryHotelServices,
-                        ),
-                        const BidInfoWidget(
-                          center: true,
-                          gap: 25,
-                        ),
-                        const SizedBox(height: 42),
-                        PreferenceContainer(
-                          heading: 'Secondary Preference',
-                          preferences: secondaryPreferences,
-                          hotelServices: secondaryHotelServices,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(12.0),
-                          child: BidDetailsSubmitForm(),
-                        ),
-                      ],
+    return BlocProvider(
+      create: (context) => BidSubmitBloc(bidService: BidService()),
+      child: Scaffold(
+        appBar: const CustomAppBar(
+          title: 'Bid Details',
+          logo: false,
+        ),
+        body: SafeArea(
+          child: SingleChildScrollView(
+            child: Stack(
+              children: [
+                Positioned(
+                  bottom: 0,
+                  child: ClipPath(
+                    clipper: CustomClipPath(),
+                    child: Container(
+                      width: SizeUtils.screenWidth,
+                      height: SizeUtils.screenHeight * 0.7,
+                      color: lightGrey,
                     ),
                   ),
                 ),
-              ),
-            ],
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Center(
+                    child: Expanded(
+                      child: Column(
+                        children: <Widget>[
+                          const BidInfoWidget(
+                            center: true,
+                            gap: 25,
+                          ),
+                          const SizedBox(height: 42),
+                          PreferenceContainer(
+                            heading: 'Primary Preference',
+                            preferences: primaryPreferences,
+                            hotelServices: primaryHotelServices,
+                          ),
+                          const BidInfoWidget(
+                            center: true,
+                            gap: 25,
+                          ),
+                          const SizedBox(height: 42),
+                          PreferenceContainer(
+                            heading: 'Secondary Preference',
+                            preferences: secondaryPreferences,
+                            hotelServices: secondaryHotelServices,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(12.0),
+                            child: BidDetailsSubmitForm(
+                              numberOfRoomsCtrl: numberOfRoomsCtrl,
+                              regularPriceCtrl: regularPriceCtrl,
+                              offerPriceCtrl: offerPriceCtrl,
+                              descriptionCtrl: descriptionCtrl,
+                              noteCtrl: noteCtrl,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

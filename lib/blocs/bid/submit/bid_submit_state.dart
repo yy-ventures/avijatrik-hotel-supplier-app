@@ -31,6 +31,18 @@ class BidSubmitFormInfoInvalid extends BidSubmitState {
   List<Object> get props => [];
 }
 
+class BidSubmitOfferPriceValid extends BidSubmitState {
+  const BidSubmitOfferPriceValid();
+  @override
+  List<Object> get props => [];
+}
+
+class BidSubmitOfferPriceInvalid extends BidSubmitState {
+  const BidSubmitOfferPriceInvalid();
+  @override
+  List<Object> get props => [];
+}
+
 class BidSubmitting extends BidSubmitState {
   const BidSubmitting();
   @override

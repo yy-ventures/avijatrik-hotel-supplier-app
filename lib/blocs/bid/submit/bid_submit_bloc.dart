@@ -8,8 +8,9 @@ part 'bid_submit_state.dart';
 
 class BidSubmitBloc extends Bloc<BidSubmitEvent, BidSubmitState> {
   BidSubmitBloc({required this.bidService})
-      : super(BidSubmitFormInitialInfoLoaded()) {
+      : super(const BidSubmitFormInitialInfoLoaded()) {
     on<SubmitSupplierBid>(_onSubmitSupplierBid);
+    on<CheckOfferPriceIsValid>(_onCheckOfferPriceIsValid);
   }
 
   final BidService bidService;
@@ -30,6 +31,20 @@ class BidSubmitBloc extends Bloc<BidSubmitEvent, BidSubmitState> {
           errors: response.error!.messages ?? {},
         ),
       );
+    }
+  }
+
+  Future<void> _onCheckOfferPriceIsValid(
+    CheckOfferPriceIsValid event,
+    Emitter<BidSubmitState> emit,
+  ) async {
+    final int regularPrice = int.parse(event.regularPrice);
+    final int offerPrice = int.parse(event.offerPrice);
+
+    if (regularPrice <= offerPrice) {
+      emit(const BidSubmitOfferPriceInvalid());
+    } else {
+      emit(const BidSubmitFormInfoValid());
     }
   }
 }

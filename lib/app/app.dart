@@ -59,7 +59,7 @@ class App extends StatelessWidget {
               locale: state.locale,
               supportedLocales: AppLocalizations.supportedLocales,
               onGenerateRoute: AppRoute.onGenerateRoute,
-              initialRoute: '/splash',
+              initialRoute: '/bid-details',
             );
           },
         ),
